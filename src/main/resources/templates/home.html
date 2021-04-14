@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <head th:fragment="header-css">
-        <title>CulinaryRecipes</title>
+        <title>CulinaryPortal</title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -20,15 +20,17 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
 
 
-</head>
-//////////////////////////////////////////////////////////////////////////
 
+
+</head>
+
+/////////////////////////////////////////////////////
 <body>
 <div th:fragment="header">
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class = "container">
-            <a class="navbar-brand" href="#"><i class="fas fa-blender"> CulinaryRecipes</i></a>
+            <a class="navbar-brand" href="#"><i class="fas fa-blender"> CulinaryPortal</i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,40 +40,47 @@
                         <a class="nav-link" th:href="@{/public/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/public/signup}"> <i class="fas fa-file-signature"> Recipes </i></a>
+                        <a class="nav-link" th:href="@{/admin/recipes}"><i class="fas fa-utensils"> Recipes</i></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/public/signup}"> <i class="fas fa-file-signature"> obaut as </i></a>
+                        <a class="nav-link" th:href="@{/admin/ingredients}"><i class="fas fa-fish"> Adding recipes </i></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Autorization </i></a>
+                        <a class="nav-link" th:href="@{/admin/community}"><i class="fas fa-users"> Forum </i></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Registration</i></a>
+                        <a class="nav-link" th:href="@{/public/signup}"> <i class="fas fa-file-signature"> About us </i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
 </header>
-/////////////////////////////////////////////////////////////////////////////////////////
 
-
+////////////////////////////////////////////////////////
     <div class="album py-5 bg-light">
         <div class="container">
+            <hr class="featurette-divider">
+
+             <center><h3>WEEKLY NEWS</h3></center>
 
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <img src="scrin/bestrec.png" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
                         <div class="card-body">
-                            <h5>Ingredient of the Week</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5>Best recipes of the week</h5>
+                            <p class="card-text">By going to this page you will see the best recipes of the week.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button class="btn btm-sm btn-danger my-2 my-sm-0" data-toggle="popover"
-                                            data-content="Sign in first please." type="submit">Learn more</button>
+                                            data-content="Sign in first please." type="submit">Read more</button>
                                 </div>
                                 <small class="text-muted"></small>
                             </div>
@@ -80,14 +89,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <img src="scrin/newrec.png" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
                         <div class="card-body">
-                            <h5>Country of the Week</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5>New recipes for this week</h5>
+                            <p class="card-text">By going to this page you can see the new recipes of the week.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button class="btn btm-sm btn-danger my-2 my-sm-0" data-toggle="popover"
-                                            data-content="Sign in first please." type="submit">Learn more</button>
+                                            data-content="Sign in first please." type="submit">Read more</button>
                                 </div>
                                 <small class="text-muted"></small>
                             </div>
@@ -96,14 +105,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <img src="scrin/newfield.png" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
                         <div class="card-body">
-                            <h5>Easy recipes of the Week</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5>News in the field of cooking</h5>
+                            <p class="card-text">By going to this page you can see news in the field of cooking.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button class="btn btm-sm btn-danger my-2 my-sm-0" data-toggle="popover"
-                                            data-content="Sign in first please." type="submit">Learn more</button>
+                                            data-content="Sign in first please." type="submit">Read more</button>
                                 </div>
                                 <small class="text-muted"></small>
                             </div>
@@ -119,17 +128,17 @@
 
         <hr class="featurette-divider">
 
-        <center><h3>Recent recipes</h3></center>
+        <center><h3>Best recipes</h3></center>
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Recipe 1. <span class="text-muted">Name.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                <center><i class="fas fa-heart"></i> 0 </center>
+                <h2 class="featurette-heading">Spaghetti Carbonara</h2>
+                <p class="lead">Spaghetti Carbonara is a hearty Italian dish of pasta, bacon, cheese and eggs. It is prepared simply and quickly. It turns out very satisfying. You can eat it at any time of the day - for lunch or dinner. Try it!</p>
+<!--                <center><i class="fas fa-heart"></i> 0 </center>-->
                 <p><center><button type="button" class="btn btn-danger" data-toggle="popover"
-                                   data-content="Sign in first please.">Read more...</button></center></p>
+                                   data-content="Sign in first please.">Read more</button></center></p>
             </div>
             <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                <img src="scrin/spaghetti.png" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></svg>
             </div>
         </div>
 
@@ -137,14 +146,14 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Recipe 2. <span class="text-muted">Name.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                <center><i class="fas fa-heart"></i> 0 </center>
+                <h2 class="featurette-heading">Lazy cabbage rolls with rice and minced</h2>
+                <p class="lead">Many people in cabbage rolls do not like the cabbage leaf, and it often remains uneaten. Therefore, the recipe option, how to cook lazy cabbage rolls with rice and minced meat, is ideal for them. See for yourself!</p>
+<!--                <center><i class="fas fa-heart"></i> 0 </center>-->
                 <p><center><button type="button" class="btn btn-danger" data-toggle="popover"
                                    data-content="Sign in first please.">Read more...</button></center></p>
             </div>
             <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                <img src="scrin/lazycabbage.png" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/></svg>
             </div>
         </div>
 
@@ -152,19 +161,28 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Recipe 3. <span class="text-muted">Name.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                <center><i class="fas fa-heart"></i> 0 </center>
+                <h2 class="featurette-heading">Mushroom and cheese pie</h2>
+                <p class="lead">These mushroom and cheese pies with rich mushroom gravy make a perfect vegetarian main.</p>
+<!--                <center><i class="fas fa-heart"></i> 0 </center>-->
                 <p><center><button type="button" class="btn btn-danger" data-toggle="popover"
                                    data-content="Sign in first please.">Read more...</button></center></p>
             </div>
             <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+                <img src="scrin/mushroom.png" alt="" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/> </svg>
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
+
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2021 Culinary portal</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+</footer>
 </html>

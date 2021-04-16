@@ -5,24 +5,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController {
+public class HomePageController {
 
-    @GetMapping("/")
-    public String HomeGuest(Model model) {
+    @GetMapping("public/signin")
+    public String homeP(Model model) {
+        model.addAttribute("title", "Главная страница");
+        return "HomeUser";
+    }
+    @GetMapping("public/page/new")
+    public String homePs(Model model) {
         model.addAttribute("title", "Главная страница");
         return "HomeGuest";
-    }
-
-    @GetMapping("public/home")
-    public String Homes(Model model) {
-        model.addAttribute("title", "Главная страница");
-        return "HomeGuest";
-    }
-
-    @GetMapping("public/about")
-    public String abouts(Model model) {
-         model.addAttribute("title","About us");
-         return "aboutUs";
     }
 }
-

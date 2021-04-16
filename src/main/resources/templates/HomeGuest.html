@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <head th:fragment="header-css">
+            <title>CulinaryPortal</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+            <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{/css/buttons.css}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+            <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+        </head>
+    </head>>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class = "container">
+
+                <a class="navbar-brand" href="#"><i class="fas fa-blender"> CulinaryPortal</i></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/public/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/public/about}"> <i class="fas fa-users"> About us </i></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/public/signinn}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
+                        </li>
+                    </ul>>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <style>
+        body {
+            background-image: url("https://images3.alphacoders.com/941/94135.jpg");
+            background-attachment: fixed;
+            /*background-color: #55595c;*/}
+        @media screen and (max-width: 1000px) {
+            div {
+                font-size: 40px;
+            }
+
+        }
+
+
+    </style>
+
+    <section class="py-5 text-light text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Hello</h1>
+                <p class="lead text-light">This web application will help you to learn about the world of culinary art.
+                    In order to start using it, you will need to pass authorization or registration.
+                    For more information, see the about us tab.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed-bottom">
+    <footer class="my-5 pt-5 text-light text-center text-small">
+        <p class="mb-1">© 2021 Culinary portal</p>
+        <ul class="list-inline">
+        </ul>
+    </footer>
+    </div>>
+</body>
+</html>

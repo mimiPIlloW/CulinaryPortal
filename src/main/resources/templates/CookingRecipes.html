@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:fragment="header-css">
+        <title>CulinaryPortal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/buttons.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+    </head>
+</head>
+
+<body>
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
+        <a class="navbar-brand" href="#"><i class="fas fa-blender"> CulinaryPortal</i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/public/about}"> <i class="far fa-address-card"> About us </i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/public/cookingrecipes}"> <i class="far fa-address-card"> Cooking
+                        recipes </i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt">
+                        Authorization </i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/public/signinn}"> <i class="fas fa-sign-in-alt">
+                        Registration </i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+</div>
+<!--???-->
+<style>
+    body {
+        background-image: url("https://images.alphacoders.com/120/120321.jpg");
+        background-attachment: fixed;
+        background-size: 2100px 1600px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                     role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="45%" y="50%" fill="#eceeef" dy=".3em" th:text="all"/>
+                </svg>
+                <div class="card-body" style="background: #C0C0C0">
+
+                    <p class="card-text" th:text="all"></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <!--                            <form method="get" th:action="'/muscleGroups/all'">-->
+                            <!--                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>-->
+                            <!--                            </form>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:each="el :${allCookingRecipes}" class="col-md-4">
+
+            <div class="card mb-4 shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                     role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="45%" y="50%" fill="#eceeef" dy=".3em" th:text="${el.getName()}"/>
+                    <!--                    <img s-->
+                </svg>
+                <!--                <img class="img-thumbnail" src="../images/muscles/back/backPreview.jpg">-->
+                <div class="card-body" style="background: #C0C0C0">
+
+                    <p class="card-text" th:text="${el.getName()}"></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <form method="get" th:action="'public/CookingRecipes/'+${el.getId()}">
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                            </form>
+                            <form method="post" th:action="'public/CookingRecipes/'+${el.getId()}+'/delete'">
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5 border border-secondary rounded bg-dark text-white">
+    <h5 >CookingRecipes</h5>
+    <form method="post" action="public/CookingRecipes/add">
+        <div style="display:inline-block">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">CookingRecipes</span>
+                </div>
+                <input type="text" name="CookingRecipes" class="form-control"
+                       aria-describedby="basic-addon3" placeholder="..." required>
+            </div>
+            <button type="submit" class="btn btn-secondary mb-1">Add cooking recipes</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

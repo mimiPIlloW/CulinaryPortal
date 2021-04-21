@@ -24,5 +24,10 @@ public class MainController {
          model.addAttribute("title","About us");
          return "aboutUs";
     }
+    @GetMapping("public/log")
+    public String homeP(Model model) {
+        model.addAttribute("title", "Главная страница");
+        return "HomeUser";
+    }
 }
 

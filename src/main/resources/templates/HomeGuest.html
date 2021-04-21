@@ -19,62 +19,56 @@
             <!-- Font Awesome -->
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
         </head>
-    </head>>
-<body>
-<div th:fragment="header">
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class = "container">
+    </head>
 
+<body>
+
+
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
                 <a class="navbar-brand" href="#"><i class="fas fa-blender"> CulinaryPortal</i></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/public/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/public/about}"> <i class="far fa-address-card"> About us </i></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/public/CookingRecipes}"> <i class="far fa-address-card"> Cooking recipes </i></a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/public/log}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/public/signinn}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
                         </li>
-                    </ul>>
+                    </ul>
                 </div>
-            </div>
         </nav>
     </header>
-</div>>
 
+</div>
+<!--???-->
     <style>
         body {
-            background-image: url("https://images3.alphacoders.com/941/94135.jpg");
+            background-image: url("https://images.alphacoders.com/120/120321.jpg");
             background-attachment: fixed;
-            /*background-color: #55595c;*/}
-        @media screen and (max-width: 1000px) {
-            div {
-                font-size: 40px;
-            }
-
+            background-size: 2100px 1600px;
         }
-
-
     </style>
 
-    <section class="py-5 text-light text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Hello</h1>
-                <p class="lead text-light">This web application will help you to learn about the world of culinary art.
+    <section class="py-5 text-white text-center container font-weight-bold">
+        <div class="cont. row py-lg-5">
+            <div class="col-lg-14 col-md-10 mx-auto">
+                <h1 class="fw-white"><b><big><big>Hello my dear chef</big></big></b></h1>
+                <p class="lead text-white"><b><b><big>This web application will help you to learn about the world of culinary art.
                     In order to start using it, you will need to pass authorization or registration.
-                    For more information, see the about us tab.
+                    For more information, see the about us tab.</big></b></b>
                 </p>
-
             </div>
         </div>
     </section>

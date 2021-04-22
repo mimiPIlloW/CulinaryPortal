@@ -16,7 +16,7 @@ public class ForumController {
     private ForumRepository forumRepository;
 
 
-    @GetMapping("public/forum")
+    @GetMapping("/forum")
     public String main(Map<String, Object> model) {
         Iterable<ForumEntity> messages = forumRepository.findAll();
 
@@ -25,7 +25,7 @@ public class ForumController {
         return "Forum";
     }
 
-    @PostMapping("public/forum")
+    @PostMapping("/forum")
     public String add(@RequestParam String text,@RequestParam String tag, Map<String, Object> model) {
         ForumEntity message = new ForumEntity(text, tag);
 
@@ -38,7 +38,7 @@ public class ForumController {
         return "Forum";
     }
 
-    @PostMapping("public/filter")
+    @PostMapping("/filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
         Iterable<ForumEntity> messages;
 

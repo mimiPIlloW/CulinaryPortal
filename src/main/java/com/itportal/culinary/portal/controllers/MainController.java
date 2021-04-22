@@ -13,21 +13,17 @@ public class MainController {
         return "HomeGuest";
     }
 
-    @GetMapping("public/home")
+    @GetMapping("/home")
     public String Homes(Model model) {
         model.addAttribute("title", "Главная страница");
-        return "HomeGuest";
+        return "HomeUser";
     }
 
-    @GetMapping("public/about")
+    @GetMapping("/about")
     public String abouts(Model model) {
          model.addAttribute("title","About us");
          return "aboutUs";
     }
-    @GetMapping("public/log")
-    public String homeP(Model model) {
-        model.addAttribute("title", "Главная страница");
-        return "HomeUser";
-    }
+
 }
 

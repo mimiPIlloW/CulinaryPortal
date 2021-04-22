@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
     <head>
         <head th:fragment="header-css">
             <title>CulinaryPortal</title>
@@ -35,21 +35,30 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/public/about}"> <i class="far fa-address-card"> About us </i></a>
+                            <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/public/CookingRecipes}"> <i class="far fa-address-card"> Cooking recipes </i></a>
+                            <a class="nav-link" th:href="@{/about}"> <i class="far fa-address-card"> About us </i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/public/forum}"> <i class="far fa-address-card"> Forum </i></a>
+                            <a class="nav-link" th:href="@{/CookingRecipes}"> <i class="far fa-address-card"> Cooking recipes </i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/public/log}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                            <a class="nav-link" th:href="@{/forum}"> <i class="far fa-address-card"> Forum </i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/public/signinn}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
+                            <a class="nav-link" th:href="@{/login}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/registration}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
                         </li>
                     </ul>
+                    <div>
+                        <form action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+                            <input type="submit" value="Sign Out"/>
+                        </form>
+                    </div>
                 </div>
         </nav>
     </header>

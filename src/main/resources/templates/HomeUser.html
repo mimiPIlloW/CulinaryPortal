@@ -34,19 +34,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" th:href="@{/public/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" th:href="@{/public/about}"> <i class="far fa-address-card"> About us </i></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/public/signin}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/public/CookingRecipes}"> <i class="far fa-address-card"> Cooking recipes </i></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/public/signinn}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/public/forum}"> <i class="far fa-address-card"> Forum </i></a>
                     </li>
-                </ul>>
+                </ul>
+                <form action="/logout" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form>
+
             </div>
         </div>
     </nav>

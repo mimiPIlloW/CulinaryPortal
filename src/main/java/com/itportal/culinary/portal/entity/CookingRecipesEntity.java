@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class CookingRecipes {
+public class CookingRecipesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -13,6 +13,13 @@ public class CookingRecipes {
 
     public Long getId() {
         return id;
+    }
+
+    public CookingRecipesEntity() {
+    }
+
+    public CookingRecipesEntity(String name) {
+        this.name = name;
     }
 
     public void setId(Long id) {

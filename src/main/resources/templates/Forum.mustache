@@ -21,8 +21,6 @@
     </head>
 </head>
 
-<body>
-
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
@@ -49,6 +47,7 @@
                         Registration </i></a>
                 </li>
             </ul>
+
         </div>
     </nav>
 </header>
@@ -69,15 +68,17 @@
 <body>
 <div>
     <form method="post">
-        <input type="text" name="text" placeholder="Enter a message" />
-        <input type="text" name="tag" placeholder="Tag">
-        <button type="submit">Add</button>
+        <input type="text" name="text" placeholder="Введите сообщение" />
+        <input type="text" name="tag" placeholder="Тэг">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <button type="submit">Добавить</button>
     </form>
 </div>
-<div>Message list</div>
+<div>Список сообщений</div>
 <form method="post" action="filter">
     <input type="text" name="filter">
-    <button type="submit">To find</button>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <button type="submit">Найти</button>
 </form>
 {{#messages}}
     <div>
@@ -86,6 +87,5 @@
         <i>{{tag}}</i>
     </div>
 {{/messages}}
-</body>
 </body>
 </html>

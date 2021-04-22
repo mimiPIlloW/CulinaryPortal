@@ -1,8 +1,10 @@
 package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.ForumEntity;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.ForumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,8 +14,12 @@ import java.util.Map;
 
 @Controller
 public class ForumController {
-    @Autowired
-    private ForumRepository forumRepository;
+
+    private final ForumRepository forumRepository;
+
+    public ForumController(ForumRepository forumRepository) {
+        this.forumRepository = forumRepository;
+    }
 
 
     @GetMapping("/forum")
@@ -26,8 +32,11 @@ public class ForumController {
     }
 
     @PostMapping("/forum")
-    public String add(@RequestParam String text,@RequestParam String tag, Map<String, Object> model) {
-        ForumEntity message = new ForumEntity(text, tag);
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text,
+            @RequestParam String tag, Map<String, Object> model) {
+        ForumEntity message = new ForumEntity (text, tag, user);
 
         forumRepository.save(message);
 
@@ -38,17 +47,17 @@ public class ForumController {
         return "Forum";
     }
 
-    @PostMapping("/filter")
+    @PostMapping("filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<ForumEntity> messages;
+        Iterable<ForumEntity> forumEntity;
 
         if (filter != null && !filter.isEmpty()) {
-            messages = forumRepository.findByTag(filter);
+            forumEntity = forumRepository.findByTag(filter);
         } else {
-            messages = forumRepository.findAll();
+            forumEntity = forumRepository.findAll();
         }
 
-        model.put("forum", messages);
+        model.put("forumEntity", forumEntity);
 
         return "Forum";
     }

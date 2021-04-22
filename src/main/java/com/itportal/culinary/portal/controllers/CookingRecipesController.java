@@ -4,15 +4,18 @@ import com.itportal.culinary.portal.entity.CookingRecipesEntity;
 import com.itportal.culinary.portal.repository.CookingRecipesRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @Controller
 public class CookingRecipesController {
-    @Autowired
-    private CookingRecipesRepository cookingRecipesRepository;
+
+    private final CookingRecipesRepository cookingRecipesRepository;
+
+    public CookingRecipesController(CookingRecipesRepository cookingRecipesRepository) {
+        this.cookingRecipesRepository = cookingRecipesRepository;
+    }
 
 
     @GetMapping("/CookingRecipes")

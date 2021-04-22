@@ -3,7 +3,6 @@ package com.itportal.culinary.portal.controllers;
 import com.itportal.culinary.portal.entity.ForumEntity;
 import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.ForumRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +27,7 @@ public class ForumController {
 
         model.put("messages", messages);
 
-        return "Forum";
+        return "Forum.html";
     }
 
     @PostMapping("/forum")
@@ -44,7 +43,7 @@ public class ForumController {
 
         model.put("messages", messages);
 
-        return "Forum";
+        return "Forum.html";
     }
 
     @PostMapping("filter")
@@ -59,6 +58,6 @@ public class ForumController {
 
         model.put("forumEntity", forumEntity);
 
-        return "Forum";
+        return "Forum.html";
     }
 }

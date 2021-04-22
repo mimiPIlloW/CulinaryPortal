@@ -21,7 +21,7 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String registration() {
-        return "registration";
+        return "registration.html";
     }
 
     @PostMapping("/registration")
@@ -30,7 +30,7 @@ public class RegistrationController {
 
         if (userFromDb != null) {
             model.put("message", "User exists!");
-            return "registration";
+            return "registration.html";
         }
 
         user.setActive(true);

@@ -24,6 +24,10 @@ public class MainController {
          model.addAttribute("title","About us");
          return "aboutUs";
     }
-
+    @GetMapping("/video")
+    public String video(Model model) {
+        model.addAttribute("title","About us");
+        return "video";
+    }
 }
 

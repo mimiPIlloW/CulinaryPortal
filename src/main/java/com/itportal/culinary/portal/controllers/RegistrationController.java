@@ -1,5 +1,6 @@
 package com.itportal.culinary.portal.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,16 +13,12 @@ import java.util.Map;
 
 @Controller
 public class RegistrationController {
-
-    private final UserRepository userRepository;
-
-    public RegistrationController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/registration")
     public String registration() {
-        return "registration.html";
+        return "registration";
     }
 
     @PostMapping("/registration")
@@ -30,7 +27,7 @@ public class RegistrationController {
 
         if (userFromDb != null) {
             model.put("message", "User exists!");
-            return "registration.html";
+            return "registration";
         }
 
         user.setActive(true);

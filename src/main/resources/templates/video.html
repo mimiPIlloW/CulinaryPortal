@@ -47,18 +47,15 @@
                     <a class="nav-link" th:href="@{/forum}"> <i class="far fa-address-card"> Forum </i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/login}"> <i class="fas fa-sign-in-alt"> Authorization </i></a>
+                    <a class="nav-link" th:href="@{/video}"> <i class="far fa-address-card"> Video </i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/registration}"> <i class="fas fa-sign-in-alt"> Registration </i></a>
+                    <a class="nav-link" th:href="@{/login}"> <i class="fas fa-sign-in-alt"> Sign In </i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/registration}"> <i class="fas fa-sign-in-alt"> Sign Up </i></a>
                 </li>
             </ul>
-            <div>
-                <form action="/logout" method="post">
-                    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-                    <input type="submit" value="Sign Out"/>
-                </form>
-            </div>
         </div>
     </nav>
 </header>

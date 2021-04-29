@@ -18,17 +18,22 @@
         <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     </head>
-</head>>
-<body>
+</head>
+
+
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
-        <a class="navbar-brand" href="#"><i class="fas fa-blender"> CulinaryPortal</i></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                 </li>
@@ -57,25 +62,208 @@
 
 <style>
     body {
-        background-image: url("https://images.alphacoders.com/120/120321.jpg");
+        background-image: url("https://images2.alphacoders.com/659/659169.jpg");
         background-attachment: fixed;
-        background-size: 2100px 1600px;
+        background-size: 1500px 900px;
     }
 </style>
 
-<section class="py-5 text-white text-center container">
-    <div class="row py-lg-5">
-        <div class="col-lg-11 col-md-15 mx-auto">
-            <h1 class="fw-white">The ability to get interesting and accessible information. Many housewives will be able to find on the portal the data that will really benefit.</h1>
-            <h2 class="fw-white">1) The ability to get interesting and accessible information. Many housewives will be able to find on the portal the data that will really benefit.</h2>
-            <h2 class="fw-white">2) The opportunity to prepare a variety of dishes daily. On the portal, you can find recipes that will help you prepare delicious food from simple and affordable products.</h2>
-            <h2 class="fw-white">3) The ability to establish proper nutrition. So, every person who will visit the portal will be able to find dishes for proper nutrition. This is not difficult, because there are correct and proven recipes available.</h2>
-            <h2 class="fw-white">4) The opportunity to continue to lead a healthy lifestyle, as well as to lose weight and put yourself in order.</h2>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
+    body {
+        margin: 0;
+        font-family: Arial;
+    }
 
-        </div>
+    /* The grid: Three equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 24.72%;
+        padding: 50px;
+        text-align: center;
+        font-size: 25px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .containerTab {
+        padding: 20px;
+        color: white;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Closable button inside the container tab */
+    .closebtn {
+        float: right;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div style="text-align:center">
+    <b><h1>About Us</h1></b>
+    <style>
+        h1 {
+            margin-top: 5%;
+        }
+    </style>
+    <b><h2>What's in this app</h2></b>
+        <b><p>Click on the boxes below</p></b>
+</div>
+
+<!-- Three columns -->
+<div class="row">
+    <div class="column" onclick="openTab('b1');" style="background:#6A5ACD;">
+        Cooking Recipes
     </div>
-</section>
+    <div class="column" onclick="openTab('b2');" style="background:#3D2B1F;">
+        Forum
+    </div>
+    <div class="column" onclick="openTab('b3');" style="background:#4285B4;">
+        News
+    </div>
+    <div class="column" onclick="openTab('b4');" style="background:#C34D0A;">
+        Video
+    </div>
+</div>
+
+<!-- Full-width columns: (hidden by default) -->
+<div id="b1" class="containerTab" style="display:none;background:#6A5ACD">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">×</span>
+   <center> <h2>Cooking Recipes</h2></center>
+    <p>This culinary portal will help you find a recipe that you have been looking for or wanted for a long time and you can also add your own culinary delight in this application.</p>
+</div>
+
+<div id="b2" class="containerTab" style="display:none;background:#3D2B1F">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">×</span>
+    <center><h2>Forum</h2></center>
+    <p>In this culinary portal there is a forum where you can share your impressions and also advise something.</p>
+</div>
+
+<div id="b3" class="containerTab" style="display:none;background:#4285B4">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">×</span>
+    <center><h2>News</h2></center>
+    <p>In this culinary portal there is a news feed where you can learn something new and pleasant at any second.</p>
+</div>
+
+<div id="b4" class="containerTab" style="display:none;background:#C34D0A">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">×</span>
+    <center><h2>Video</h2></center>
+    <p>In this culinary portal there is a video where everyone can find something about cooking to have a good time while cooking as well as during rest.</p>
+</div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .container {
+        border: 2px solid #ccc;
+        background-color: #eee;
+        border-radius: 5px;
+        padding: 16px;
+        margin: 16px 0
+        width: 300px;
+    }
+
+    .container::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .container img {
+        float: left;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+
+    .container span {
+        font-size: 20px;
+        margin-right: 15px;
+    }
+
+    @media (max-width: 500px) {
+        .container {
+            text-align: center;
+        }
+        .container img {
+            margin: auto;
+            float: none;
+            display: block;
+        }
+    }
+
+</style>
+<b><center><h1>Reviews</h1></center></b>
+<div class="container" style="background: #C0C0C0">
+    <img src="https://mfiles.alphacoders.com/912/912713.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Dweko</span></p></big></b>
+    <b><p>Simple delicious recipes for every day and holidays, bright illustrations. Very convenient, the app is always at hand.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images2.alphacoders.com/665/66550.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>VOLIDol</span></p></big></b>
+    <b> <p>Delicious and original recipes of dishes.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images7.alphacoders.com/114/1144016.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Wefre</span> </p></big></b>
+    <b> <p>A simple and easy-to-use app with lots of step-by-step recipes.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images3.alphacoders.com/114/1143088.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Row</span></p></big></b>
+    <b> <p>Suitable for beginners in the field of cooking.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images3.alphacoders.com/114/1142686.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Geri</span></p></big></b>
+    <b>  <p>An interesting, bright, juicy application.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images3.alphacoders.com/114/1141624.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Fox</span></p></big></b>
+    <b>  <p>A beautiful and convenient cooking app for cooking at home.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images3.alphacoders.com/114/1140936.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Fort</span></p></big></b>
+    <b> <p>The app has a huge number of recipes: it is easy and simple to prepare every day.</p></b>
+</div>
+
+<div class="container" style="background: #C0C0C0">
+    <img src="https://images3.alphacoders.com/114/1140112.jpg" alt="Avatar" style="width:90px">
+    <b><big><p><span>Chris </span></p></big></b>
+    <b> <p>A simple and user-friendly application with a pleasant design.</p></b>
+</div>
+
+<script>
+    function openTab(tabName) {
+        var i, x;
+        x = document.getElementsByClassName("containerTab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+</script>
 
 <footer class="my-5 pt-5 text-black text-center text-small">
     <p class="mb-1">© 2021 Culinary portal</p>

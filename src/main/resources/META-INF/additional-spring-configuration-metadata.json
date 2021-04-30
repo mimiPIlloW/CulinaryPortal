@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "upload.CookindRecipesPath",
+      "type": "java.lang.String",
+      "description": "Description for upload.CookindRecipesPath."
+  }
+] }

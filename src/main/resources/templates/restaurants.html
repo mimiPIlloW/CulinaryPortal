@@ -23,17 +23,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-  <!--Fontawesome CDN-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         </head>
     </head>
 
+<body>
 
 
+
+
+    <header>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -62,34 +61,28 @@
         <li class="nav-item ">
             <a class="nav-link " th:href="@{/CulinaryEstablishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
         </li>
-          </ul>
+    </ul>
   </div>
   <form th:action="@{/logout}" method="post">
   <input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
 </form>
 </nav>
 </header>
-
-    <style>
-        body {
-            background-image: url("https://images2.alphacoders.com/659/659169.jpg");
-            background-attachment: fixed;
-            background-size: 1500px 900px;
-        }
-    </style>
-
 <body>
 
-  <div class="text-center py-5" style="margin-bottom:0">
-    <big><big><b><h1>Here you will see the news in the culinary world</h1></b></big></big>
-  </div>
+<style>
+    body {
+        background-image: url("https://images2.alphacoders.com/659/659169.jpg");
+        background-attachment: fixed;
+        background-size: 1500px 900px;
+    }
+</style>
 
 
-<footer class="my-5 pt-5 text-black text-center text-small">
-    <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>
-    <ul class="list-inline">
-    </ul>
-</footer>
-
+  <footer class="my-5 pt-5 text-black text-center text-small">
+      <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>
+      <ul class="list-inline">
+      </ul>
+  </footer>
 </body>
 </html>

@@ -26,7 +26,12 @@
 
         </head>
     </head>
+
 <body>
+
+
+
+
     <header>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
@@ -63,21 +68,51 @@
 </form>
 </nav>
 </header>
-<body>
 
+</div>
+<!--???-->
 <style>
-    body {
-        background-image: url("https://images2.alphacoders.com/659/659169.jpg");
-        background-attachment: fixed;
-        background-size: 1500px 900px;
-    }
-</style>
+        body {
+            background-image: url("https://images2.alphacoders.com/659/659169.jpg");
+           background-attachment: fixed;
+            background-size: 1500px 900px;
+        }
+    </style>
+
+                <div class="card">
+                    <div class="card-body" style="background: #FFFFE0">
+                        <form th:method="PATCH" th:action="@{/admin/users}">
+
+                            <input type="hidden" name="userId" th:value="${user.getId()}">
+                            <p class="card-text" th:text="${user.getUsername()}+'  |  '+${user.getPassword()}+'  |'"/>
+                            <img th:if="${user.getImage()==null || user.getImage().isEmpty()}" th:src="@{'/img/'+'default_avatar.png'}"
+                                 class=" mb-3 mt-1"
+                                 th:alt="${user.getUsername()}"
+                                 height="150">
+                            <img th:unless="${user.getImage()==null || user.getImage().isEmpty()}" th:src="${'/img/'+user.getImage()}"
+                                 class="mb-3 mt-1"
+                                 th:alt="${user.getUsername()}"
+                                 height="150">
+                            <div th:if="${user.getStatus()!=null}" class="text-white text-center">
+                                <h4 th:style="'background-color:'+${user.getStatus().getColorCode()}"
+                                    th:text="'STATUS: '+${user.getStatus().name()} "></h4>
+                            </div>
+                            <div th:each="role :${allRoles}" class="row">
+                                <input type="checkbox" th:name="${role}" th:checked="${user.roles.contains(role)}" class="ml-3">
+                                <p class="card-text ml-2" th:text="${role.name()}"/>
+                            </div>
+                                <div class="btn-group d-flex justify-content-between align-items-center">
+                                    <form th:action="'/users/'+${user.getUsername()}">
+                                        <button type="button" class="btn btn-outline-warning mt-2">Edit</button>
+                                        <button type="button" class="btn btn-outline-danger mt-2" data-toggle="modal" th:data-target="'#myModal'+${user.getId()}">Delete</button>
+                                    </form>
+                                </div>
+                        </form>
+                    </div>
+                </div>
 
 
-  <footer class="my-5 pt-5 text-black text-center text-small">
-      <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>
-      <ul class="list-inline">
-      </ul>
-  </footer>
+
+<footer th:insert="parts/footer::footer"></footer>
 </body>
 </html>

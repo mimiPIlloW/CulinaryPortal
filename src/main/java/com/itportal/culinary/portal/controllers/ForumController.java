@@ -5,6 +5,7 @@ import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.ForumRepository;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,39 +26,22 @@ public class ForumController {
     public String main(Map<String, Object> model) {
         Iterable<ForumEntity> messages = forumRepository.findAll();
 
-        model.put("messages", messages);
+        model.put("allMessages", messages);
 
-        return "Forum.html";
+        return "Forum";
     }
 
     @PostMapping("/forum")
-    public String add(
-            @AuthenticationPrincipal User user,
-            @RequestParam String text,
-            @RequestParam String tag, Map<String, Object> model) {
-        ForumEntity message = new ForumEntity (text, tag, user);
+    public String add(@RequestParam String name, Map<String, Object> model) {
+        ForumEntity message = new ForumEntity (name);
 
         forumRepository.save(message);
 
         Iterable<ForumEntity> messages = forumRepository.findAll();
 
-        model.put("messages", messages);
+        model.put("allMessages", messages);
 
-        return "Forum.html";
+        return "Forum";
     }
 
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<ForumEntity> forumEntity;
-
-        if (filter != null && !filter.isEmpty()) {
-            forumEntity = forumRepository.findByTag(filter);
-        } else {
-            forumEntity = forumRepository.findAll();
-        }
-
-        model.put("forumEntity", forumEntity);
-
-        return "Forum.html";
-    }
 }

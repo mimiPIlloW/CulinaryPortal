@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:insert="common/commonHead::commonHead">
+  <head th:fragment="header-css">
+      <title>CulinaryPortal</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/buttons.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<header>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+<ul class="navbar-nav">
+  <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/about}"> <i class="far fa-address-card"> About us </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/CookingRecipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/video}"> <i class="fab fa-youtube"> Video </i></a>
+                    </li>
+    <li class="nav-item ">
+        <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper">Newspaper </i></a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " th:href="@{/CulinaryEstablishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
+    </li>
+</ul>
+</div>
+<form th:action="@{/logout}" method="post">
+<input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
+</form>
+</nav>
+</header>
+<!--<p>Muscles</p>-->
+<!--&lt;!&ndash;<a href="/muscles/csv">MusclesCSV</a>&ndash;&gt;-->
+
+<style>
+        body {
+            background-image: url("https://images2.alphacoders.com/659/659169.jpg");
+           background-attachment: fixed;
+            background-size: 1500px 900px;
+        }
+    </style>
+
+<div class="container-lg">
+        <h4 th:text="${CookingRecipes.getName()}" class="align-middle col-12" style="color: #FFA07A"></h4>
+        <div th:each="el:${cookingRecipesCookingMap.get(cookingRecipes)}" class="col-lg-4 col-md-12">
+            <div class="card mb-4 shadow-sm">
+                <div class="card">
+                    <img th:src="${'/img/'+el.getImage()}" class="card-img-top"
+                         th:alt="${el.getName()}"
+                         align="center" style="background: #FFA07A" height="225">
+                    <div class="card-body" style="background: #FFA07A">
+                        <p class="card-text text-dark" th:text="${el.getName()}"></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <form th:action="'/recipes/'+${el.getId()}">
+                                    <button type="submit" class="btn btn-success">View</button>
+                                </form>
+                                <form th:method="DELETE" th:action="'/recipes/'+${el.getId()}+'/delete'" sec:authorize="hasAuthority('ADMIN')">
+                                    <input type="hidden" th:value="${el.getCookingRecipes().getId()}" name="groupId">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" th:data-target="'#myModal'+${el.getId()}">Delete</button>
+                                    <div class="modal fade" th:id="'myModal'+${el.getId()}" role="dialog">
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container mt-5 mb-5 border border-secondary rounded bg-dark text-white"
+     sec:authorize="isAuthenticated()">
+    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h5 class="text-white"> Add a recipe</h5>
+    </button>
+        <form class="collapse" id="collapseOne" th:method="post" action="/CookingRecipes" enctype="multipart/form-data">
+            <div>
+                <div class="input-group mb-2 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Recipe name</span>
+                    </div>
+                    <input type="text" name="muscleName" class="form-control"
+                           aria-describedby="basic-addon3" placeholder="..." required>
+                </div>
+				<div class="input-group mb-2 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Recipe Description</span>
+                    </div>
+                    <input type="text" name="muscleName" class="form-control"
+                           aria-describedby="basic-addon3" placeholder="..." required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Recipe ingredients</span>
+                    </div>
+                    <textarea class="form-control " name="muscle_info" aria-label="With textarea" rows="10"></textarea>
+                </div>
+				<div class="input-group mb-2 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Recipe preparation time</span>
+                    </div>
+                    <input type="text" name="muscleName" class="form-control"
+                           aria-describedby="basic-addon3" placeholder="..." required>
+                </div>
+				<div class="input-group mb-2 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Number of servings</span>
+                    </div>
+                    <input type="text" name="muscleName" class="form-control"
+                           aria-describedby="basic-addon3" placeholder="..." required>
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Nutritional and energy value</span>
+                    </div>
+                    <textarea class="form-control " name="muscle_functions" aria-label="With textarea"></textarea>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="file" name="file" class="input-group-text" id="file">
+                </div>
+                <button type="submit" class="btn btn-secondary mb-1">Add recipes</button>
+            </div>
+        </form>
+</div>
+
+
+<footer th:insert="parts/footer::footer"></footer>
+</body>
+</html>

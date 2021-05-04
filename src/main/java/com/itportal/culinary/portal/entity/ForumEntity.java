@@ -8,40 +8,24 @@ public class ForumEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String text;
-    private String tag;
+    private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User author;
 
     public ForumEntity() {
     }
 
-    public ForumEntity(String text, String tag, User user) {
-        this.text = text;
-        this.tag = tag;
-        this.author = user;
+    public ForumEntity(String name) {
+        this.name= name;
+
     }
 
-    public String getAuthorName(){
-        return author != null ? author.getUsername() : "<none>";
+
+    public String getName() {
+        return name;
     }
 
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -52,11 +36,5 @@ public class ForumEntity {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
-    }
 
-    public void setText(String text) {
-        this.text = text;
-    }
 }

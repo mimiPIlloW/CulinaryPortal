@@ -29,5 +29,16 @@ public class MainController {
         model.addAttribute("title","About us");
         return "video";
     }
+    @GetMapping("/newspaper")
+    public String news(Model model) {
+        model.addAttribute("title","About us");
+        return "news";
+    }
+    @GetMapping("/CulinaryEstablishments")
+    public String restaurant(Model model) {
+        model.addAttribute("title","About us");
+        return "restaurants";
+    }
+
 }
 

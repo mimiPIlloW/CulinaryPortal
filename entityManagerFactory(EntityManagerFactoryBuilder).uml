@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Persistence</ID>
+  <OriginalElement>JavaeeElement:/b0ca5510/entityManagerFactory/culinary.portal/jpa/JPA/PersistenceModel</OriginalElement>
+  <nodes>
+    <node x="272.0" y="192.0">Recipes#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Recipes.java</node>
+    <node x="0.0" y="445.0">AbstractPersistable#jar://C:/Users/FamMa/.m2/repository/org/springframework/data/spring-data-jpa/2.4.6/spring-data-jpa-2.4.6.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class</node>
+    <node x="67.5" y="549.0">AbstractAuditable#jar://C:/Users/FamMa/.m2/repository/org/springframework/data/spring-data-jpa/2.4.6/spring-data-jpa-2.4.6.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class</node>
+    <node x="292.5" y="22.0">CookingRecipesGroup#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/CookingRecipesGroup.java</node>
+    <node x="132.0" y="247.0">ForumEntity#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/ForumEntity.java</node>
+    <node x="128.0" y="0.0">User#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/User.java</node>
+    <node x="204.0" y="457.0">null#null</node>
+    <node x="0.0" y="247.0">NewsEntity#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/NewsEntity.java</node>
+    <node x="545.0" y="0.0">Cities#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Cities.java</node>
+    <node x="521.5" y="148.0">Establishments#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Establishments.java</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="NewsEntity#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/NewsEntity.java" target="User#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/User.java">
+      <point x="0.0" y="-49.0" />
+      <point x="56.0" y="167.0" />
+      <point x="149.33333333333334" y="167.0" />
+      <point x="-42.66666666666666" y="71.0" />
+    </edge>
+    <edge source="Recipes#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Recipes.java" target="CookingRecipesGroup#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/CookingRecipesGroup.java">
+      <point x="37.5" y="-104.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="Recipes#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Recipes.java" target="User#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/User.java">
+      <point x="-37.5" y="-104.0" />
+      <point x="309.5" y="167.0" />
+      <point x="234.66666666666666" y="167.0" />
+      <point x="42.66666666666666" y="71.0" />
+    </edge>
+    <edge source="ForumEntity#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/ForumEntity.java" target="User#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/User.java">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="Establishments#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Establishments.java" target="Cities#file://C:/Users/FamMa/Desktop/CulinaryPortal/src/main/java/com/itportal/culinary/portal/entity/Cities.java">
+      <point x="0.0" y="-93.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="AbstractAuditable#jar://C:/Users/FamMa/.m2/repository/org/springframework/data/spring-data-jpa/2.4.6/spring-data-jpa-2.4.6.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class" target="null#null">
+      <point x="42.0" y="-38.0" />
+      <point x="193.5" y="524.0" />
+      <point x="211.0" y="524.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="AbstractAuditable#jar://C:/Users/FamMa/.m2/repository/org/springframework/data/spring-data-jpa/2.4.6/spring-data-jpa-2.4.6.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class" target="AbstractPersistable#jar://C:/Users/FamMa/.m2/repository/org/springframework/data/spring-data-jpa/2.4.6/spring-data-jpa-2.4.6.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class">
+      <point x="-42.0" y="-38.0" />
+      <point x="109.5" y="524.0" />
+      <point x="92.0" y="524.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="338.0" y="312.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Embeddables</Category>
+    <Category>Superclasses</Category>
+  </Categories>
+</Diagram>
+

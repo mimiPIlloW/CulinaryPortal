@@ -32,8 +32,8 @@ public class ForumController {
     }
 
     @PostMapping("/forum")
-    public String add(@RequestParam String name, Map<String, Object> model) {
-        ForumEntity message = new ForumEntity (name);
+    public String add(@RequestParam String name, String full_text, User user, Map<String, Object> model) {
+        ForumEntity message = new ForumEntity (name, full_text, user);
 
         forumRepository.save(message);
 

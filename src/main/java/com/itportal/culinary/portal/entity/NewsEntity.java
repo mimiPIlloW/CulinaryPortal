@@ -13,6 +13,7 @@ public class NewsEntity {
     private Long id;
 
     private String name;
+
     private String image;
 
     @ManyToOne

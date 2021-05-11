@@ -1,5 +1,6 @@
 package com.itportal.culinary.portal.controllers;
 
+import com.itportal.culinary.portal.entity.CookingRecipesGroup;
 import com.itportal.culinary.portal.entity.ForumEntity;
 import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.ForumRepository;
@@ -23,23 +24,25 @@ public class ForumController {
 
 
     @GetMapping("/forum")
-    public String main(Map<String, Object> model) {
+    public String main(Model model) {
         Iterable<ForumEntity> messages = forumRepository.findAll();
 
-        model.put("allMessages", messages);
+        model.addAttribute("allMessages", messages);
 
         return "Forum";
     }
 
     @PostMapping("/forum")
-    public String add(@RequestParam String name, String full_text, User user, Map<String, Object> model) {
-        ForumEntity message = new ForumEntity (name, full_text, user);
+    public String add(@RequestParam String name, String full_text,  Model model) {
+        ForumEntity message = new ForumEntity ();
+        message.setName(name);
+        message.setFull_text(full_text);
 
         forumRepository.save(message);
 
         Iterable<ForumEntity> messages = forumRepository.findAll();
 
-        model.put("allMessages", messages);
+        model.addAttribute("allMessages", messages);
 
         return "Forum";
     }

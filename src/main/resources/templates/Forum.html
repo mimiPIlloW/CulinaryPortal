@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head>
         <head th:fragment="header-css">
             <title>CulinaryPortal</title>
@@ -84,25 +84,50 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+<div class="container mt-5 mb-5 border border-secondary rounded  text-center" style="background: #228B22"
+     sec:authorize="isAuthenticated()">
+    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h5 class="text-white text-center"> Add news item</h5>
+    </button>
+    <form class="collapse" id="collapseOne" th:method="post" action="/forum" enctype="multipart/form-data">
+        <div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Description news item</span>
+                </div>
+                <textarea class="form-control " name="name" aria-label="With textarea" rows="10"></textarea>
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Description news item</span>
+                </div>
+                <textarea class="form-control " name="full_text" aria-label="With textarea" rows="10"></textarea>
+            </div>
+            <div class="input-group mb-2">
+                <input type="file" name="file" class="input-group-text" id="file">
+            </div>
+            <button type="submit" class="btn btn-secondary mb-1">Add news item</button>
+        </div>
+    </form>
+</div>
 
-
-<div class="container mt-15 " >
-        <!--/*@thymesVar id="allCookingRecipes" type=""*/-->
+<div class="container">
+    <div class="row">
         <div th:each="el :${allMessages}" class="col-md-4 ">
 
-            <div class="card mb-4 shadow-sm">
-<!--                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"-->
-<!--                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"-->
-<!--                     role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>-->
-<!--                    <rect width="100%" height="100%" fill="#55595c"></rect>-->
-<!--                    &lt;!&ndash;                    <img s&ndash;&gt;-->
-<!--                </svg>-->
-                <!--                <img class="img-thumbnail" src="../images/muscles/back/backPreview.jpg">-->
-                <div class="card-body" style="background: #C0C0C0">
+            <div class="card mb-10 shadow-sm">
+                <div class="card-body" style="background: #FFA07A">
 
                     <p class="card-text" th:text="${el.getName()}"></p>
+                    <p class="card-text" th:text="${el.getFull_text()}"></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
+                            <form method="get" th:action="'/CookingRecipes'+${el.getId()}">
+                                <button type="submit" class="btn btn-success">View</button>
+                            </form>
+                            <form method="post" th:action="'/CookingRecipes'+${el.getId()}+'/delete'">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -111,32 +136,9 @@
     </div>
 </div>
 
-<div class="container mt-15 " >
-  <h1>Forum</h1>
-  <form actrion="/blog/add" method "post">
-    <input type="text" name="title" placeholder="Add" class="form-control">
-    <input type="text" name="anons" placeholder="Add" class="form-control">
-    <input type="text" name="full_text" placeholder="Add" class="form-control">
-    <button type="submit" class="btn btn-success">add</button>
-  </form>
-  </div>
 
 
 
-
-<div class="container mt-5 mb-5 border border-secondary rounded bg-dark text-white">
-    <h5 >Add new text</h5>
-    <form action="/Forum" method="post">
-        <div style="display:inline-block">
-            <div class="input-group mb-2">
-              <textarea name="comment" cols="40" rows="3"></textarea>
-                <!-- <input type="text" name="Forum" class="form-control"
-                       aria-describedby="basic-addon3" placeholder="Enter text"  size="110" required> -->
-            </div>
-            <button type="submit" class="btn btn-secondary mb-1">Add text</button>
-        </div>
-    </form>
-</div>
 
 <footer class="my-5 pt-5 text-black text-center text-small">
     <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>

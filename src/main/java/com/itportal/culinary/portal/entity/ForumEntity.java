@@ -14,6 +14,4 @@ public class ForumEntity {
     private String name;
     private String full_text;
 
-    @ManyToOne
-    private User user;
 }

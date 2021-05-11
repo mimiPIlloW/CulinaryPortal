@@ -17,5 +17,4 @@ public class Cities {
 
     private String image;
 
-
 }

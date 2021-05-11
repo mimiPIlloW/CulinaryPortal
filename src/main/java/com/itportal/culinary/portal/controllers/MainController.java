@@ -29,12 +29,5 @@ public class MainController {
         model.addAttribute("title","About us");
         return "video";
     }
-
-    @GetMapping("/CulinaryEstablishments")
-    public String restaurant(Model model) {
-        model.addAttribute("title","About us");
-        return "restaurants";
-    }
-
 }
 

@@ -39,9 +39,6 @@
                             <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/about}"> <i class="far fa-address-card"> About us </i></a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/CookingRecipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
                         </li>
                         <li class="nav-item">
@@ -83,7 +80,7 @@
     </div>
 </section>
 
-<div class="container mt-5 mb-5 border border-secondary rounded  text-black" style="background: #87CEEB"
+<div class="container mt-5 mb-5 border border-secondary rounded  text-black text-center" style="background: #87CEEB"
      sec:authorize="isAuthenticated()">
     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         <h5 class="text-black"> Add establishment</h5>
@@ -92,7 +89,7 @@
         <div>
             <div class="input-group mb-2 ">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">Establishment name</span>
+                    <span class="input-group-text">Cities</span>
                 </div>
                 <input type="text" name="name" class="form-control"
                        aria-describedby="basic-addon3" placeholder="..." required>
@@ -100,7 +97,7 @@
             <div class="input-group mb-2">
                 <input type="file" name="file" class="input-group-text" id="file">
             </div>
-            <button type="submit" class="btn btn-secondary mb-1">Add recipes</button>
+            <button type="submit" class="btn btn-secondary mb-1">Add Cities</button>
         </div>
     </form>
 </div>
@@ -112,9 +109,12 @@
             <div class="card mb-10 shadow-sm">
                 <img th:src="${'/img/' + el.getImage()}" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
 
-                <div class="card-body" style="background: #FFA07A">
-
-                    <p class="card-text" th:text="${el.getName()}"></p>
+                <div class="card-body" style="background: #87CEEB">
+                    <div class="container mt-4 " >
+                        <div class="card mb-4 shadow-sm text-center" style="background:#76c9cb">
+                    <p class="card-text" th:text="${el.getName()}">cvfdfds</p>
+                        </div>
+                    </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <form method="get" th:action="'/CookingRecipes'+${el.getId()}">

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
     <head>
         <head th:fragment="header-css">
             <title>CulinaryPortal</title>
@@ -44,9 +44,6 @@
                             <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/about}"> <i class="far fa-address-card"> About us </i></a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" th:href="@{/CookingRecipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
                         </li>
                         <li class="nav-item">
@@ -89,6 +86,28 @@
         </div>
     </section>
 
+    <div class="container mt-5 mb-5 border border-secondary rounded  text-black text-center" style="background: #FFA07A"
+         sec:authorize="isAuthenticated()">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5 class="text-black"> Add new cooking recipes </h5>
+        </button>
+        <form class="collapse" id="collapseOne" th:method="post" action="/CookingRecipes" enctype="multipart/form-data">
+            <div>
+                <div class="input-group mb-2 ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">New cooking section</span>
+                    </div>
+                    <input type="text" name="name" class="form-control"
+                           aria-describedby="basic-addon3" placeholder="..." required>
+                </div>
+                <div class="input-group mb-2">
+                    <input type="file" name="file" class="input-group-text" id="file">
+                </div>
+                <button type="submit" class="btn btn-secondary mb-1">Add recipes</button>
+            </div>
+        </form>
+    </div>
+
     <div class="container mt-4">
         <div class="row">
          <div th:each="el :${allCookingRecipes}" class="col-md-4 ">
@@ -98,7 +117,7 @@
 
                 <div class="card-body" style="background: #FFA07A">
                     <div class="container mt-4 " >
-                        <div class="card mb-4 shadow-sm" style="background:#FF7F50">
+                        <div class="card mb-4 shadow-sm text-center" style="background:#FF7F50">
                     <p class="card-text" th:text="${el.getName()}"></p>
                         </div>
                     </div>
@@ -118,27 +137,27 @@
     </div>
 </div>
 
-<div class="container mt-5 mb-5 border border-secondary rounded bg-dark text-white">
-    <h5 >Add new cooking recipes</h5>
-    <form action="/CookingRecipes" method="post" enctype="multipart/form-data">
-        <div style="display:inline-block">
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> New cooking section</span>
-                </div>
-                <input type="text" name="name" class="form-control"
-                       aria-describedby="basic-addon3" placeholder="Enter new cooking recipes" required>
-                <div class="custom-file mb-4">
-                    <input type="file" name="file" class="custom-file-input"
-                           id="customFile"> <label class="custom-file-label"
-                                                   for="customFile">Product Image</label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-secondary mb-1">Add cooking section</button>
-        </div>
-    </form>
-</div>
-</div>
+<!--<div class="container mt-5 mb-5 border border-secondary rounded bg-dark text-white">-->
+<!--    <h5 >Add new cooking recipes</h5>-->
+<!--    <form action="/CookingRecipes" method="post" enctype="multipart/form-data">-->
+<!--        <div style="display:inline-block">-->
+<!--            <div class="input-group mb-2">-->
+<!--                <div class="input-group-prepend">-->
+<!--                    <span class="input-group-text"> New cooking section</span>-->
+<!--                </div>-->
+<!--                <input type="text" name="name" class="form-control"-->
+<!--                       aria-describedby="basic-addon3" placeholder="Enter new cooking recipes" required>-->
+<!--                <div class="custom-file mb-4">-->
+<!--                    <input type="file" name="file" class="custom-file-input"-->
+<!--                           id="customFile"> <label class="custom-file-label"-->
+<!--                                                   for="customFile">Product Image</label>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-secondary mb-1">Add cooking section</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</div>-->
 
 
 <footer class="my-5 pt-5 text-black text-center text-small">

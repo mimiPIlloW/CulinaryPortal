@@ -1,8 +1,11 @@
 package com.itportal.culinary.portal.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Recipes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

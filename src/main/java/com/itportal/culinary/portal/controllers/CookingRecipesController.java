@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.UUID;
 
 @Controller
@@ -60,5 +62,13 @@ public class CookingRecipesController {
         model.addAttribute("allCookingRecipes", messages);
 
         return "CookingRecipes";
+    }
+    @GetMapping("/CookingRecipes/{id}")
+    public String addRecipes(@PathVariable(name = "id") Long id, Model model) {
+        Optional<CookingRecipesGroup> post = cookingRecipesRepository.findById(id);
+        ArrayList<CookingRecipesGroup> res = new ArrayList<>();
+        post.ifPresent(res::add);
+        model.addAttribute("post", post);
+        return"Recipes";
     }
 }

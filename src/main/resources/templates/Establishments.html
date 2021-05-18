@@ -83,7 +83,7 @@
 <div class="container mt-5 mb-5 border border-secondary rounded  text-black text-center" style="background: #87CEEB"
      sec:authorize="isAuthenticated()">
     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <h5 class="text-black"> Add establishment</h5>
+        <h5 class="text-black"> Add Cities</h5>
     </button>
     <form class="collapse" id="collapseOne" th:method="post" action="/CulinaryEstablishments" enctype="multipart/form-data">
         <div>
@@ -119,9 +119,6 @@
                         <div class="btn-group">
                             <form method="get" th:action="'/CookingRecipes'+${el.getId()}">
                                 <button type="submit" class="btn btn-success">View</button>
-                            </form>
-                            <form method="post" th:action="'/CookingRecipes'+${el.getId()}+'/delete'">
-                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
                     </div>

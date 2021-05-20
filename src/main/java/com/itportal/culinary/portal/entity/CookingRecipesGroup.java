@@ -16,5 +16,6 @@ public class CookingRecipesGroup {
 
     private String image;
 
-
+    @OneToMany
+    Set<Recipes> recipesSet;
 }

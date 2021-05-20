@@ -29,5 +29,10 @@ public class MainController {
         model.addAttribute("title","About us");
         return "video";
     }
+    @GetMapping("/cooking_recipes")
+    public String tsded(Model model) {
+        model.addAttribute("title","About us");
+        return "CulinarGroup";
+    }
 }
 

@@ -39,7 +39,7 @@
                         <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/CookingRecipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
+                        <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum </i></a>
@@ -89,10 +89,10 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <!--                            <a th:href="'/CookingRecipes/'+${el.id}" class="btn btn-success">Viee</a>-->
-                            <form method="get" th:action="'/CookingRecipes/'+${el.getId()}">
+                            <form method="get" th:action="'/Recipes/'+${el.getId()}">
                                 <button type="submit" class="btn btn-success">View</button>
                             </form>
-                            <form method="post" th:action="'/CookingRecipes'+${el.getId()}+'/delete'">
+                            <form method="post" th:action="'/Recipes'+${el.getId()}+'/delete'">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
@@ -108,8 +108,11 @@
     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         <h5 class="text-white"> Add a recipe</h5>
     </button>
-        <form class="collapse" id="collapseOne" th:method="post" action="/recipes/" enctype="multipart/form-data">
+        <form class="collapse" id="collapseOne" th:method="POST" action="/recipes/add" enctype="multipart/form-data">
             <div>
+<!--                <div class="input-group mb-2">-->
+<!--                    <input type="hidden" th:value="${allCookingRecipesGroup.getId()}" name="groupId">-->
+<!--                </div>-->
                 <div class="input-group mb-2 ">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Recipe name</span>

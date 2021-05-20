@@ -63,12 +63,13 @@ public class CookingRecipesController {
 
         return "CookingRecipes";
     }
-    @GetMapping("/CookingRecipes/{id}")
-    public String addRecipes(@PathVariable(name = "id") Long id, Model model) {
-        Optional<CookingRecipesGroup> post = cookingRecipesRepository.findById(id);
-        ArrayList<CookingRecipesGroup> res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post", post);
-        return"Recipes";
-    }
+
+//    @GetMapping("/CookingRecipes/{id}")
+//    public String addRecipes(@PathVariable(name = "id") Long id, Model model) {
+//        Optional<CookingRecipesGroup> post = cookingRecipesRepository.findById(id);
+//        ArrayList<CookingRecipesGroup> res = new ArrayList<>();
+//        post.ifPresent(res::add);
+//        model.addAttribute("post", post);
+//        return"Recipes";
+//    }
 }

@@ -93,7 +93,7 @@
 </section>
 
 
-<div class="container mt-5 mb-5 border border-secondary rounded  text-center" style="background: #50ac50"
+<div class="container mt-5 mb-5 border border-secondary rounded  text-center" style="background: #95e995"
      sec:authorize="isAuthenticated()">
     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         <h5 class="text-white text-center"> Add news item</h5>
@@ -105,6 +105,13 @@
                     <span class="input-group-text">Title:</span>
                 </div>
                 <input type="text" name="name" class="form-control"
+                       aria-describedby="basic-addon3" placeholder="..." required>
+            </div>
+            <div class="input-group mb-2 ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Anons:</span>
+                </div>
+                <input type="text" name="anons" class="form-control"
                        aria-describedby="basic-addon3" placeholder="..." required>
             </div>
             <div class="input-group mb-2">
@@ -124,20 +131,23 @@
 <div class="container mt-4 " >
     <div class="row">
         <div class="col-md-12" >
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body" style="background:#50ac50">
                     <div th:each="el:${allMessages}" class="alert alert-info mt-4">
                         <div class="container mt-4 " >
-                            <div class="card mb-4 shadow-sm" style="background:#46ae46">
-                                <h3 class="text-white"  >Title:</h3>
-                                <h4 class="text-white" th:text="${el.getName()}"></h4>
-                            <div class=" mb-4 " style="background:#46ae46">
-                                <h3 class="text-white">Text:</h3>
-                                <h4 class="text-white" th:text="${el.getFull_text()}"></h4>
+                            <div class="card mb-4 shadow-sm" style="background:#95e995">
+                                <h3 class="text-black"  >Title:</h3>
+                                <h4 class="text-black" th:text="${el.getName()}"></h4>
+                            <div class=" mb-4 " style="background:#95e995">
+                                <h3 class="text-black">Anons:</h3>
+                                <h4 class="text-black" th:text="${el.getAnons()}"></h4>
                             </div>
+                                <div class="btn-group">
+                                    <form method="get" th:action="'/forum/'+${el.getId()}">
+                                        <button type="submit" class="btn btn-success">More details</button>
+                                    </form>
+                                </div>
                         </div>
                     </div>
-                </div>  </div> </div></div> </div>
+                    </div>  </div> </div> </div>
 
 
 
@@ -149,5 +159,6 @@
     </ul>
 </footer>
 
+</body>
 </body>
 </html>

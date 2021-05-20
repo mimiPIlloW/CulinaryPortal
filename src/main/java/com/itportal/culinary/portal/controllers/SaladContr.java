@@ -78,11 +78,11 @@ public class SaladContr {
         return "SaladDescr";
     }
 
-    @PostMapping("/salad/{id}/delete")
-    public String deleteRecipesId(@PathVariable long id,
-                                   @RequestParam(name = "groupId") Long groupId) {
-        saladService.deleteRecipesId(id);
-        return "redirect:/Salad/" +groupId;
-    }
+//    @PostMapping("/salad/{id}/delete")
+//    public String deleteRecipesId(@PathVariable long id,
+//                                   @RequestParam(name = "groupId") Long groupId) {
+//        saladService.deleteRecipesId(id);
+//        return "redirect:/Salad/" +groupId;
+//    }
 
 }

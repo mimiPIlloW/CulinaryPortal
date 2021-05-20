@@ -9,9 +9,10 @@ import javax.persistence.*;
 public class ForumEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String name;
+    private String anons;
     private String full_text;
 
 }

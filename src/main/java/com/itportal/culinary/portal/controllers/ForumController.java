@@ -1,26 +1,22 @@
 package com.itportal.culinary.portal.controllers;
 
-import com.itportal.culinary.portal.entity.CookingRecipesGroup;
 import com.itportal.culinary.portal.entity.ForumEntity;
-import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.ForumRepository;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import com.itportal.culinary.portal.service.ForumService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Map;
-
 @Controller
+@RequiredArgsConstructor
 public class ForumController {
 
     private final ForumRepository forumRepository;
-
-    public ForumController(ForumRepository forumRepository) {
-        this.forumRepository = forumRepository;
-    }
+    private final ForumService forumService;
 
 
     @GetMapping("/forum")
@@ -33,10 +29,11 @@ public class ForumController {
     }
 
     @PostMapping("/forum")
-    public String add(@RequestParam String name, String full_text,  Model model) {
+    public String add(@RequestParam String name,String anons, String full_text,  Model model) {
         ForumEntity message = new ForumEntity ();
         message.setName(name);
         message.setFull_text(full_text);
+        message.setAnons(anons);
 
         forumRepository.save(message);
 
@@ -45,6 +42,14 @@ public class ForumController {
         model.addAttribute("allMessages", messages);
 
         return "Forum";
+    }
+
+    @GetMapping("/forum/{id}")
+    public String detailsForumId(@PathVariable(name = "id") long id,
+                                   Model model) {
+
+        model.addAttribute("forum", forumService.findById(id));
+        return "ForumDescr";
     }
 
 }

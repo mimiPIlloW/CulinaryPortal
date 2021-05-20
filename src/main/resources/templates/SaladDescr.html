@@ -57,7 +57,7 @@
                     <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper">Newspaper </i></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " th:href="@{/CulinaryEstablishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
+                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
                 </li>
             </ul>
         </div>
@@ -82,6 +82,10 @@
         <h1>Salad</h1>
             <p th:text="${salad.getName()}"/>
             <p th:text="${salad.getDescription()}"/>
+            <p th:text="${salad.getIngridients()}"/>
+            <p th:text="${salad.getTime()}"/>
+            <p th:text="${salad.getServings()}"/>
+            <p th:text="${salad.getEnnergyValue()}"/>
         </div>
     </div>
 </div>

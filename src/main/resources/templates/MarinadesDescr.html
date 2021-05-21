@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:fragment="header-css">
+        <title>CulinaryPortal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/buttons.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    </head>
+</head>
+
+<body>
+
+
+
+
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum </i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/video}"> <i class="fab fa-youtube"> Video </i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper">Newspaper </i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
+                </li>
+            </ul>
+        </div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
+        </form>
+    </nav>
+</header>
+
+</div>
+<!--???-->
+<style>
+    body {
+        background-image: url("https://images2.alphacoders.com/659/659169.jpg");
+        background-attachment: fixed;
+        background-size: 1500px 900px;
+    }
+</style>
+
+<div class="container mt-5 bg-dark text-white rounded" >
+    <div class="container mt-5 mb-5 ">
+        <h1>Dessert</h1>
+        <p th:text="${marinades.getName()}"/>
+        <p th:text="${marinades.getDescription()}"/>
+        <p th:text="${marinades.getIngridients()}"/>
+        <p th:text="${marinades.getTime()}"/>
+        <p th:text="${marinades.getServings()}"/>
+        <p th:text="${marinades.getEnnergyValue()}"/>
+    </div>
+</div>
+</div>
+
+<footer class="my-5 pt-5 text-black text-center text-small">
+    <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>
+    <ul class="list-inline">
+    </ul>
+</footer>
+
+</body>
+</html>

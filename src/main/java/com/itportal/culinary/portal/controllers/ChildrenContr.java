@@ -1,8 +1,9 @@
 package com.itportal.culinary.portal.controllers;
 
+import com.itportal.culinary.portal.entity.Children;
 import com.itportal.culinary.portal.entity.Desserts;
-import com.itportal.culinary.portal.repository.DessertsRepo;
-import com.itportal.culinary.portal.service.DessertService;
+import com.itportal.culinary.portal.repository.ChildrenRepo;
+import com.itportal.culinary.portal.service.ChildrenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -19,22 +20,22 @@ import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
-public class DessertsContr {
-    private final DessertsRepo dessertsRepo;
-    private final DessertService dessertService;
+public class ChildrenContr {
+    private final ChildrenRepo childrenRepo;
+    private final ChildrenService childrenService;
 
     @Value("${upload.path}")
     private String uploadPath;
 
-    @GetMapping("/desserts")
+    @GetMapping("/for_children")
     public String main(Model model) {
-        Iterable<Desserts> message = dessertsRepo.findAll();
+        Iterable<Children> message = childrenRepo.findAll();
 
-        model.addAttribute("allDesserts", message);
-        return "Desserts";
+        model.addAttribute("allChildren", message);
+        return "ForChildren";
     }
 
-    @PostMapping("/desserts")
+    @PostMapping("/for_children")
     public String add(
             @RequestParam String name,
             @RequestParam String description,
@@ -43,13 +44,13 @@ public class DessertsContr {
             @RequestParam String servings,
             @RequestParam String ennergyValue,Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
-        Desserts desserts = new Desserts();
-        desserts.setName(name);
-        desserts.setDescription(description);
-        desserts.setIngridients(ingridients);
-        desserts.setTime(time);
-        desserts.setServings(servings);
-        desserts.setEnnergyValue(ennergyValue);
+        Children children = new Children();
+        children.setName(name);
+        children.setDescription(description);
+        children.setIngridients(ingridients);
+        children.setTime(time);
+        children.setServings(servings);
+        children.setEnnergyValue(ennergyValue);
         if(file !=null){
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()){
@@ -61,19 +62,19 @@ public class DessertsContr {
 
             file.transferTo(new File(uploadPath +  "/" + resultFilename));
 
-            desserts.setImage(resultFilename);
+            children.setImage(resultFilename);
         }
-        dessertsRepo.save(desserts);
-        Iterable<Desserts> message = dessertsRepo.findAll();
-        model.addAttribute("allDesserts", message);
-        return "Desserts";
+        childrenRepo.save(children);
+        Iterable<Children> message = childrenRepo.findAll();
+        model.addAttribute("allChildren", message);
+        return "ForChildren";
     }
 
-    @GetMapping("/desserts/{id}")
-    public String detailsDessertsId(@PathVariable(name = "id") long id,
+    @GetMapping("/for_children/{id}")
+    public String detailsChildrenId(@PathVariable(name = "id") long id,
                                     Model model) {
 
-        model.addAttribute("desserts", dessertService.findById(id));
-        return "DessertDescr";
+        model.addAttribute("children", childrenService.findById(id));
+        return "ForChildrenDescr";
     }
 }

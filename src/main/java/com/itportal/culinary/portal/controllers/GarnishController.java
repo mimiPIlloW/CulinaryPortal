@@ -1,10 +1,10 @@
 package com.itportal.culinary.portal.controllers;
 
+
 import com.itportal.culinary.portal.entity.Desserts;
-import com.itportal.culinary.portal.entity.Recipes;
-import com.itportal.culinary.portal.repository.DessertsRepo;
-import com.itportal.culinary.portal.repository.RecipesRepository;
-import com.itportal.culinary.portal.service.DessertService;
+import com.itportal.culinary.portal.entity.Garnish;
+import com.itportal.culinary.portal.repository.GarnishRep;
+import com.itportal.culinary.portal.service.GarnishService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -21,22 +21,22 @@ import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
-public class DessertsContr {
-    private final DessertsRepo dessertsRepo;
-    private final DessertService dessertService;
+public class GarnishController {
+    private final GarnishRep garnishRep;
+    private final GarnishService garnishService;
 
     @Value("${upload.path}")
     private String uploadPath;
 
-    @GetMapping("/desserts")
+    @GetMapping("/side_dishes")
     public String main(Model model) {
-        Iterable<Desserts> message = dessertsRepo.findAll();
+        Iterable<Garnish> message = garnishRep.findAll();
 
-        model.addAttribute("allDesserts", message);
-        return "Desserts";
+        model.addAttribute("allGarnish", message);
+        return "Garnish";
     }
 
-    @PostMapping("/desserts")
+    @PostMapping("/side_dishes")
     public String add(
             @RequestParam String name,
             @RequestParam String description,
@@ -45,13 +45,13 @@ public class DessertsContr {
             @RequestParam String servings,
             @RequestParam String ennergyValue,Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
-        Desserts desserts = new Desserts();
-        desserts.setName(name);
-        desserts.setDescription(description);
-        desserts.setIngridients(ingridients);
-        desserts.setTime(time);
-        desserts.setServings(servings);
-        desserts.setEnnergyValue(ennergyValue);
+        Garnish garnish = new Garnish();
+        garnish.setName(name);
+        garnish.setDescription(description);
+        garnish.setIngridients(ingridients);
+        garnish.setTime(time);
+        garnish.setServings(servings);
+        garnish.setEnnergyValue(ennergyValue);
         if(file !=null){
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()){
@@ -63,19 +63,20 @@ public class DessertsContr {
 
             file.transferTo(new File(uploadPath +  "/" + resultFilename));
 
-            desserts.setImage(resultFilename);
+            garnish.setImage(resultFilename);
         }
-        dessertsRepo.save(desserts);
-        Iterable<Desserts> message = dessertsRepo.findAll();
-        model.addAttribute("allDesserts", message);
-        return "Desserts";
+        garnishRep.save(garnish);
+        Iterable<Garnish> message = garnishRep.findAll();
+        model.addAttribute("allGarnish", message);
+        return "Garnish";
     }
 
-    @GetMapping("/desserts/{id}")
-    public String detailsDessertsId(@PathVariable(name = "id") long id,
+    @GetMapping("/side_dishes/{id}")
+    public String detailsSideDishesId(@PathVariable(name = "id") long id,
                                     Model model) {
 
-        model.addAttribute("desserts", dessertService.findById(id));
-        return "DessertDescr";
+        model.addAttribute("garnish", garnishService.findById(id));
+        return "GarnishDescr";
     }
+
 }

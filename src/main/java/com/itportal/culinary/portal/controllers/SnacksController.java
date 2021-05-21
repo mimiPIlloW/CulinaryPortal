@@ -1,10 +1,10 @@
 package com.itportal.culinary.portal.controllers;
 
+
 import com.itportal.culinary.portal.entity.Desserts;
-import com.itportal.culinary.portal.entity.Recipes;
-import com.itportal.culinary.portal.repository.DessertsRepo;
-import com.itportal.culinary.portal.repository.RecipesRepository;
-import com.itportal.culinary.portal.service.DessertService;
+import com.itportal.culinary.portal.entity.Snacks;
+import com.itportal.culinary.portal.repository.SnacksRep;
+import com.itportal.culinary.portal.service.SnacksService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -21,22 +21,22 @@ import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
-public class DessertsContr {
-    private final DessertsRepo dessertsRepo;
-    private final DessertService dessertService;
+public class SnacksController {
+    private final SnacksRep snacksRep;
+    private final SnacksService snacksService;
 
     @Value("${upload.path}")
     private String uploadPath;
 
-    @GetMapping("/desserts")
+    @GetMapping("/snacks")
     public String main(Model model) {
-        Iterable<Desserts> message = dessertsRepo.findAll();
+        Iterable<Snacks> message = snacksRep.findAll();
 
-        model.addAttribute("allDesserts", message);
-        return "Desserts";
+        model.addAttribute("allSnacks", message);
+        return "Snacks";
     }
 
-    @PostMapping("/desserts")
+    @PostMapping("/snacks")
     public String add(
             @RequestParam String name,
             @RequestParam String description,
@@ -45,13 +45,13 @@ public class DessertsContr {
             @RequestParam String servings,
             @RequestParam String ennergyValue,Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
-        Desserts desserts = new Desserts();
-        desserts.setName(name);
-        desserts.setDescription(description);
-        desserts.setIngridients(ingridients);
-        desserts.setTime(time);
-        desserts.setServings(servings);
-        desserts.setEnnergyValue(ennergyValue);
+        Snacks snacks = new Snacks();
+        snacks.setName(name);
+        snacks.setDescription(description);
+        snacks.setIngridients(ingridients);
+        snacks.setTime(time);
+        snacks.setServings(servings);
+        snacks.setEnnergyValue(ennergyValue);
         if(file !=null){
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()){
@@ -63,19 +63,19 @@ public class DessertsContr {
 
             file.transferTo(new File(uploadPath +  "/" + resultFilename));
 
-            desserts.setImage(resultFilename);
+            snacks.setImage(resultFilename);
         }
-        dessertsRepo.save(desserts);
-        Iterable<Desserts> message = dessertsRepo.findAll();
-        model.addAttribute("allDesserts", message);
-        return "Desserts";
+        snacksRep.save(snacks);
+        Iterable<Snacks> message = snacksRep.findAll();
+        model.addAttribute("allSnacks", message);
+        return "Snacks";
     }
 
-    @GetMapping("/desserts/{id}")
-    public String detailsDessertsId(@PathVariable(name = "id") long id,
+    @GetMapping("/snacks/{id}")
+    public String muscleByIdDetails(@PathVariable(name = "id") long id,
                                     Model model) {
 
-        model.addAttribute("desserts", dessertService.findById(id));
-        return "DessertDescr";
+        model.addAttribute("snacks", snacksService.findById(id));
+        return "SnacksDescr";
     }
 }

@@ -72,10 +72,17 @@ public class SnacksController {
     }
 
     @GetMapping("/snacks/{id}")
-    public String muscleByIdDetails(@PathVariable(name = "id") long id,
+    public String detailsSnacksId(@PathVariable(name = "id") long id,
                                     Model model) {
 
         model.addAttribute("snacks", snacksService.findById(id));
         return "SnacksDescr";
+    }
+    @PostMapping("/snacks/{id}/delete")
+    public String deleteSnacksId(@PathVariable(name = "id") long id,
+                                    Model model) {
+        Snacks snacks = snacksRep.findById(id).orElseThrow();
+        snacksRep.delete(snacks);
+        return "redirect:/snacks";
     }
 }

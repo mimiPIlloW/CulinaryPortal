@@ -79,4 +79,12 @@ public class SoupsContr {
         return "SoupsDescr";
     }
 
+    @PostMapping("/soups/{id}/delete")
+    public String deleteSoupsId(@PathVariable(name = "id") long id,
+                                 Model model) {
+        Soups soups = soupsRep.findById(id).orElseThrow();
+        soupsRep.delete(soups);
+        return "redirect:/soups";
+    }
+
 }

@@ -76,4 +76,11 @@ public class DrinksContr {
         model.addAttribute("drinks", drinksService.findById(id));
         return "DrinksDescr";
     }
+    @PostMapping("/drinks/{id}/delete")
+    public String deleteDrinksId(@PathVariable(name = "id") long id,
+                                  Model model) {
+        Drinks drinks = drinksRep.findById(id).orElseThrow();
+        drinksRep.delete(drinks);
+        return "redirect:/drinks";
+    }
 }

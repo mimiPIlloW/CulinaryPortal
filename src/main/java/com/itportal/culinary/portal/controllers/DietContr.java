@@ -77,4 +77,11 @@ public class DietContr {
         model.addAttribute("diet", dietService.findById(id));
         return "DietDescr";
     }
+    @PostMapping("/diet_food/{id}/delete")
+    public String deleteDietId(@PathVariable(name = "id") long id,
+                                Model model) {
+        Diet diet = dietRepo.findById(id).orElseThrow();
+        dietRepo.delete(diet);
+        return "redirect:/diet_food";
+    }
 }

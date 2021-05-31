@@ -79,5 +79,13 @@ public class SecondCoursesContr {
         return "SecondCoursesDescr";
     }
 
+    @PostMapping("/second_courses/{id}/delete")
+    public String deleteSecondCoursessId(@PathVariable(name = "id") long id,
+                                          Model model) {
+        SecondCourses secondCourses = secondCoursesRep.findById(id).orElseThrow();
+        secondCoursesRep.delete(secondCourses);
+        return "redirect:/second_courses";
+    }
+
 
 }

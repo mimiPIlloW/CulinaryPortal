@@ -132,9 +132,18 @@
                               <div class="card mb-4 shadow-sm" style="background:#ca4b4b">
                           <h3 class="text-white" th:text="${el.getName()}"></h3>
                               </div>
+                              <div class="btn-group">
+                                  <form method="post" th:action="'/news/'+${el.getId()}+'/delete'">
+                                      <button type="submit" class="btn btn-danger">Delete</button>
+                                  </form>
+                              </div>
                           </div>
                       </div>
-                  </div>  </div> </div></div> </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
 <footer class="my-5 pt-5 text-black text-center text-small">
     <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>

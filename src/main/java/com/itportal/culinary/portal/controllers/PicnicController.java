@@ -77,4 +77,11 @@ public class PicnicController {
         model.addAttribute("picnic", picnicService.findById(id));
         return "PicnicDescr";
     }
+    @PostMapping("/picnic/{id}/delete")
+    public String deletePicnicId(@PathVariable(name = "id") long id,
+                                  Model model) {
+        Picnic picnic = picnicRepo.findById(id).orElseThrow();
+        picnicRepo.delete(picnic);
+        return "redirect:/picnic";
+    }
 }

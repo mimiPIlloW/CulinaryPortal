@@ -144,6 +144,9 @@
                                     <form method="get" th:action="'/forum/'+${el.getId()}">
                                         <button type="submit" class="btn btn-success">More details</button>
                                     </form>
+                                    <form method="post" th:action="'/forum/'+${el.getId()}+'/delete'">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </div>
                         </div>
                     </div>

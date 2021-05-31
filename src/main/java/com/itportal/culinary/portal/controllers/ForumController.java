@@ -51,5 +51,11 @@ public class ForumController {
         model.addAttribute("forum", forumService.findById(id));
         return "ForumDescr";
     }
-
+    @PostMapping("/forum/{id}/delete")
+    public String deleteForumId(@PathVariable(name = "id") long id,
+                                 Model model) {
+        ForumEntity forumEntity = forumRepository.findById(id).orElseThrow();
+        forumRepository.delete(forumEntity);
+        return "redirect:/forum";
+    }
 }

@@ -78,4 +78,12 @@ public class SaucesContr {
         model.addAttribute("sauces", saucesService.findById(id));
         return "SaucesDescr";
     }
+
+    @PostMapping("/sauces/{id}/delete")
+    public String deleteSaucesId(@PathVariable(name = "id") long id,
+                                  Model model) {
+        Sauces sauces = saucesRepo.findById(id).orElseThrow();
+        saucesRepo.delete(sauces);
+        return "redirect:/sauces";
+    }
 }

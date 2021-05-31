@@ -77,4 +77,11 @@ public class MainDishesContr {
         model.addAttribute("dishes", mainDishesService.findById(id));
         return "MainDishesDescr";
     }
+    @PostMapping("/main_dishes/{id}/delete")
+    public String deleteMainDishesId(@PathVariable(name = "id") long id,
+                                      Model model) {
+        MainDishes mainDishes = mainDishesRepo.findById(id).orElseThrow();
+        mainDishesRepo.delete(mainDishes);
+        return "redirect:/main_dishes";
+    }
 }

@@ -79,4 +79,12 @@ public class GarnishController {
         return "GarnishDescr";
     }
 
+    @PostMapping("/side_dishes/{id}/delete")
+    public String deleteSideDishesId(@PathVariable(name = "id") long id,
+                                      Model model) {
+        Garnish garnish = garnishRep.findById(id).orElseThrow();
+        garnishRep.delete(garnish);
+        return "redirect:/side_dishes";
+    }
+
 }

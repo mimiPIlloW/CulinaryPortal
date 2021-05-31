@@ -78,4 +78,12 @@ public class BreakfastController {
         return "BreakfastDescr";
     }
 
+    @PostMapping("/breakfast/{id}/delete")
+    public String deleteBreakfastId(@PathVariable (name = "id") long id,Model model)
+    {
+        Breakfast breakfast = breakfastRepo.findById(id).orElseThrow();
+        breakfastRepo.delete(breakfast);
+        return "redirect:/breakfast";
+    }
+
 }

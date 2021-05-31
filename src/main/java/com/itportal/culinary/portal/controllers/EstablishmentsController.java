@@ -81,4 +81,12 @@ public class EstablishmentsController {
         model.addAttribute("establishments", establishmentsService.findById(id));
         return "EstablishmentsDescr";
     }
+
+    @PostMapping("/culinary_establishments/{id}/delete")
+    public String deleteEstablishmentsId(@PathVariable(name = "id") long id,
+                                          Model model) {
+        Establishments establishments = establishmentsRepository.findById(id).orElseThrow();
+        establishmentsRepository.delete(establishments);
+        return "redirect:/culinary_establishments";
+    }
 }

@@ -147,6 +147,9 @@
                             <form method="get" th:action="'/culinary_establishments/'+${el.getId()}">
                                 <button type="submit" class="btn btn-success">View</button>
                             </form>
+                            <form method="post" th:action="'/culinary_establishments/'+${el.getId()}+'/delete'">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

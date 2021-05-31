@@ -77,4 +77,11 @@ public class MarinadesContr {
         model.addAttribute("marinades", marinadesService.findById(id));
         return "MarinadesDescr";
     }
+    @PostMapping("/marinades/{id}/delete")
+    public String deleteMarinadesId(@PathVariable(name = "id") long id,
+                                     Model model) {
+        Marinades marinades = marinadesRepo.findById(id).orElseThrow();
+        marinadesRepo.delete(marinades);
+        return "redirect:/marinades";
+    }
 }

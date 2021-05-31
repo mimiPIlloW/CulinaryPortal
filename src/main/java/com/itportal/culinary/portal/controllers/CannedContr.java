@@ -77,4 +77,12 @@ public class CannedContr {
         model.addAttribute("canned", cannedService.findById(id));
         return "CannedFoodDescr";
     }
+    @PostMapping("/canned_food/{id}/delete")
+    public String deleteCannedId(@PathVariable(name = "id") long id,
+                                  Model model) {
+        Canned canned = cannedRepo.findById(id).orElseThrow();
+        cannedRepo.delete(canned);
+        return "redirect:/canned_food";
+    }
+
 }

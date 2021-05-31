@@ -77,4 +77,11 @@ public class ChildrenContr {
         model.addAttribute("children", childrenService.findById(id));
         return "ForChildrenDescr";
     }
+    @PostMapping("/for_children/{id}/delete")
+    public String deleteChildrenId(@PathVariable(name = "id") long id,
+                                    Model model) {
+        Children children = childrenRepo.findById(id).orElseThrow();
+        childrenRepo.delete(children);
+        return "redirect:/for_children";
+    }
 }

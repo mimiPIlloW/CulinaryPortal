@@ -71,18 +71,19 @@ public class SaladContr {
         return "Salad";
     }
     @GetMapping("/salad/{id}")
-    public String detailsRecipesId(@PathVariable(name = "id") long id,
+    public String detailsSaladId(@PathVariable(name = "id") long id,
                                     Model model) {
 
         model.addAttribute("salad", saladService.findById(id));
         return "SaladDescr";
     }
 
-//    @PostMapping("/salad/{id}/delete")
-//    public String deleteRecipesId(@PathVariable long id,
-//                                   @RequestParam(name = "groupId") Long groupId) {
-//        saladService.deleteRecipesId(id);
-//        return "redirect:/Salad/" +groupId;
-//    }
+    @PostMapping("/salad/{id}/delete")
+    public String deleteSaladId(@PathVariable(name = "id") long id,
+                                  Model model) {
+        Salad salad = saladRep.findById(id).orElseThrow();
+        saladRep.delete(salad);
+        return "redirect:/salad" ;
+    }
 
 }

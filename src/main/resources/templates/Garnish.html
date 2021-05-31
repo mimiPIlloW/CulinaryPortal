@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:fragment="header-css">
     <title>CulinaryPortal</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +29,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+        <a class="navbar-brand" href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,24 +39,26 @@
                     <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
+                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking
+                        recipes</i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum </i></a>
+                    <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum</i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/video}"> <i class="fab fa-youtube"> Video </i></a>
+                    <a class="nav-link" th:href="@{/video}"> <b><i class="fab fa-youtube"> Video</i></b></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper">Newspaper </i></a>
+                    <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper"> Newspaper</i></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
+                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell">
+                        Culinary establishments</i></a>
                 </li>
             </ul>
         </div>
         <form th:action="@{/logout}" method="post">
-            <input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
+            <input type="submit" class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
         </form>
     </nav>
 </header>
@@ -80,39 +82,10 @@
     </div>
 </section>
 
-<div class="container mt-4">
-    <div class="row">
-        <div th:each="el :${allGarnish}" class="col-md-4 ">
-
-            <div class="card mb-10 shadow-sm">
-                <img th:src="${'/img/' + el.getImage()}" class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/></svg>
-
-                <div class="card-body" style="background: #FFA07A">
-                    <div class="container mt-4 " >
-                        <div class="card mb-4 shadow-sm text-center" style="background:#FF7F50">
-                            <p class="card-text" th:text="${el.getName()}"></p>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <!--                            <a th:href="'/CookingRecipes/'+${el.id}" class="btn btn-success">Viee</a>-->
-                            <form method="get" th:action="'/side_dishes/'+${el.getId()}">
-                                <button type="submit" class="btn btn-success">View</button>
-                            </form>
-                            <form method="post" th:action="'/side_dishes/'+${el.getId()}+'/delete'">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container mt-5 mb-5 border border-secondary rounded bg-dark text-white"
+<div class="container mt-5 mb-5 border border-secondary rounded text-center" style="background: #106783"
      sec:authorize="isAuthenticated()">
-    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
         <h5 class="text-white"> Add a recipe</h5>
     </button>
     <form class="collapse" id="collapseOne" th:method="POST" action="/side_dishes" enctype="multipart/form-data">
@@ -168,7 +141,45 @@
     </form>
 </div>
 
+<div class="container mt-4">
+    <div class="row">
+        <div th:each="el :${allGarnish}" class="col-md-4 ">
 
+            <div class="card mb-4 shadow-sm">
+                <img th:src="${'/img/' + el.getImage()}" class="bd-placeholder-img card-img-top" width="100%"
+                     height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#55595c"/>
+                </svg>
+
+                <div class="card-body" style="background: #106783">
+                    <div class="container mt-4 ">
+                        <div class="card mb-4 shadow-sm text-center" style="background:#FF7F50">
+                            <p class="card-text" th:text="${el.getName()}"></p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <!--                            <a th:href="'/CookingRecipes/'+${el.id}" class="btn btn-success">Viee</a>-->
+                            <form method="get" th:action="'/side_dishes/'+${el.getId()}">
+                                <button type="submit" class="btn btn-success">View</button>
+                            </form>
+                            <form method="post" th:action="'/side_dishes/'+${el.getId()}+'/delete'">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="my-5 pt-5 text-black text-center text-small">
+    <p class="mb-1"><i class="far fa-thumbs-up"> 2021 Culinary portal</i></p>
+    <ul class="list-inline">
+    </ul>
+</footer>
 
 </body>
 </html>

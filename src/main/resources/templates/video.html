@@ -1,77 +1,77 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-    <head>
-        <head th:fragment="header-css">
-            <title>CulinaryPortal</title>
-            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <head th:fragment="header-css">
+        <title>CulinaryPortal</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-            <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
-            <!-- CSS -->
-            <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
-            <link rel="stylesheet" type="text/css" th:href="@{/css/buttons.css}"/>
-            <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
-            <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
-            <!-- Font Awesome -->
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/buttons.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/carousel.css}"/>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"/>
 
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
-        </head>
-
-        <style>
-            body {
-                background-image: url("https://images2.alphacoders.com/659/659169.jpg");
-                background-attachment: fixed;
-                background-size: 1500px 900px;
-            }
-        </style>
     </head>
+
+    <style>
+        body {
+            background-image: url("https://images2.alphacoders.com/659/659169.jpg");
+            background-attachment: fixed;
+            background-size: 1500px 900px;
+        }
+    </style>
+</head>
 
 <body>
 
 
-
-
-    <header>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-                            <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum </i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/video}"> <i class="fab fa-youtube"> Video </i></a>
-                        </li>
-        <li class="nav-item ">
-            <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper">Newspaper </i></a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
-        </li>
-    </ul>
-  </div>
-  <form th:action="@{/logout}" method="post">
-  <input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
-</form>
-</nav>
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking
+                        recipes</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/video}"> <b><i class="fab fa-youtube"> Video</i></b></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper"> Newspaper</i></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell">
+                        Culinary establishments</i></a>
+                </li>
+            </ul>
+        </div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
+        </form>
+    </nav>
 </header>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,7 +91,7 @@
     }
 
     .active, .accordion:hover {
-        background-color: style="color: #035840";
+        background-color: style = "color: #035840";
     }
 
     .panel {
@@ -103,170 +103,299 @@
 </style>
 
 
-
-
-<section class="py-5 text-black text-center container font-weight-bold">
-    <div class="cont. row py-lg-5">
+<section class="py-2 text-black text-center container font-weight-bold">
+    <div class="cont. row py-lg-4">
         <div class="col-lg-14 col-md-10 mx-auto">
-            <h1 class="fw-black"><b><big>Here you can find what you like to view</big></b></h1>
+            <h1 class="fw-black"><b><big><big> Here you can find what you like to view</big></big></b></h1>
+            </p>
         </div>
     </div>
 </section>
 
 <button class="accordion text-center "><b><big><big>MasterChef</big></big></b></button>
 <div class="panel">
-<button class="accordion text-center "><b><big>Season 1</big></b></button>
-<div class="panel">
-    <b><big><p><a href="https://www.youtube.com/watch?v=MaK3jbkwI9o&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=1" target="_blank">Issue 1</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=zHEWdqyDIQE&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=2" target="_blank">Issue 2</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=-Mv-aL9lu5w&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=3" target="_blank">Issue 3</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=Z4jFXkhotvE&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=4" target="_blank">Issue 4</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=hSiRPD1yWeM&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=5" target="_blank">Issue 5</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=KagjYS5sbnA&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=6" target="_blank">Issue 6</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=5OMxY-Q7PqE&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=7" target="_blank">Issue 7</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=tpuU3jC1kb0&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=8" target="_blank">Issue 8</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=f07irto_H5E&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=9" target="_blank">Issue 9</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=OgIOX7vDxBk&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=10" target="_blank">Issue 10</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=xLNyzu-cDvY&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=11" target="_blank">Issue 11</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=npnhvIbr_ps&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=12" target="_blank">Issue 12</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=90lW149xOC0&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=13" target="_blank">Issue 13</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=MwsA23AFEJI&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=14" target="_blank">Issue 14</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=8-yXppEXqak&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=15" target="_blank">Issue 15</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=4HVaR80T3NI&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=16" target="_blank">Issue 16</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=2jiuwNKzg5I&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=17" target="_blank">Issue 17</a></p></big></b>
-</div>
-
-<button class="accordion text-center "><b><big>Season 2</big></b></button>
+    <button class="accordion text-center "><b><big>Season 1</big></b></button>
     <div class="panel">
-    <b><big><p><a href="https://www.youtube.com/watch?v=F8yGDtzl8nc&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=1" target="_blank">Issue 1</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=0wUU8OmEtrE&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=2" target="_blank">Issue 2</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=wLtRV5IbJYY&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=3" target="_blank">Issue 5</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=w0lMcXub-Ko&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=4" target="_blank">Issue 6</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=L7Kdh-Uw_GQ&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=5" target="_blank">Issue 7</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=rdOvws-LmUA&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=6" target="_blank">Issue 11</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=Lr7dTHtEy3w&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=7" target="_blank">Issue 12</a></p></big></b>
-    <b><big><p><a href="https://www.youtube.com/watch?v=gDIDxh6CqqU&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=8" target="_blank">Issue 13</a></p></big></b>
-   <b><big> <p><a href="https://www.youtube.com/watch?v=Hmk5s-mXQx8&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=9" target="_blank">Issue 16</a></p></big></b>
-   <b><big> <p><a href="https://www.youtube.com/watch?v=A71N5qpHgcQ&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=10" target="_blank">Issue 17</a></p></big></b>
-</div>
+        <b><big><p><a href="https://www.youtube.com/watch?v=MaK3jbkwI9o&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=1"
+                      target="_blank">Issue 1</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=zHEWdqyDIQE&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=2"
+                      target="_blank">Issue 2</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=-Mv-aL9lu5w&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=3"
+                      target="_blank">Issue 3</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=Z4jFXkhotvE&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=4"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=hSiRPD1yWeM&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=5"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KagjYS5sbnA&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=6"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=5OMxY-Q7PqE&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=7"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=tpuU3jC1kb0&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=8"
+                      target="_blank">Issue 8</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=f07irto_H5E&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=9"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=OgIOX7vDxBk&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=10"
+                target="_blank">Issue 10</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=xLNyzu-cDvY&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=11"
+                target="_blank">Issue 11</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=npnhvIbr_ps&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=12"
+                target="_blank">Issue 12</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=90lW149xOC0&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=13"
+                target="_blank">Issue 13</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=MwsA23AFEJI&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=14"
+                target="_blank">Issue 14</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=8-yXppEXqak&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=15"
+                target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=4HVaR80T3NI&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=16"
+                target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=2jiuwNKzg5I&list=PLulhhfF73uBiMyHk4p94Qkp0wQp4Tg1mG&index=17"
+                target="_blank">Issue 17</a></p></big></b>
+    </div>
+
+    <button class="accordion text-center "><b><big>Season 2</big></b></button>
+    <div class="panel">
+        <b><big><p><a href="https://www.youtube.com/watch?v=F8yGDtzl8nc&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=1"
+                      target="_blank">Issue 1</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=0wUU8OmEtrE&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=2"
+                      target="_blank">Issue 2</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=wLtRV5IbJYY&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=3"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=w0lMcXub-Ko&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=4"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=L7Kdh-Uw_GQ&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=5"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=rdOvws-LmUA&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=6"
+                      target="_blank">Issue 11</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=Lr7dTHtEy3w&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=7"
+                      target="_blank">Issue 12</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=gDIDxh6CqqU&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=8"
+                      target="_blank">Issue 13</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=Hmk5s-mXQx8&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=9"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=A71N5qpHgcQ&list=PLulhhfF73uBh8WsDuBaMAnyWCLa1T00x4&index=10"
+                target="_blank">Issue 17</a></p></big></b>
+    </div>
 
     <button class="accordion text-center "><b><big>Season 3</big></b></button>
     <div class="panel">
-        <b><big><p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p style="color:#48D1CC"><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                target="_blank">Issue 4</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                target="_blank">Issue 5</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                target="_blank">Issue 6</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                target="_blank">Issue 7</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                target="_blank">Issue 9</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                target="_blank">Issue 15</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                target="_blank">Issue 16</a></p></big></b>
+        <b><big><p style="color:#48D1CC"><a
+                href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 4</big></b></button>
     <div class="panel">
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=iuiwK8_I7PI&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=1" target="_blank">Issue 1</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=EKa5TVtobnQ&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=2" target="_blank">Issue 2</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=mq7gT1EuGPA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=3" target="_blank">Issue 3</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=PULbs6d1_Yg&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=4" target="_blank">Issue 4</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=i_J454wNY6Q&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=5" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=l9zzRiLVU0o&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=6" target="_blank">Issue 6</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=uIz11pTYMrA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=7" target="_blank">Issue 7 part 1</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=P_KD6Qa19_4&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=8" target="_blank">Issue 7 part 2</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=-hdnE_VDyCA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=9" target="_blank">Issue 8</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=1cFFLOCR74Q&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=10" target="_blank">Issue 9 part 1</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=IsKbEveGkmU&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=11" target="_blank">Issue 9 part 2</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eeS436Zp7Vs&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=12" target="_blank">Issue 10</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=M5A88wUvpsY&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=13" target="_blank">Issue 11</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=qI-JRUGIch4&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=14" target="_blank">Issue 12</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=G3WrpITTtag&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=15" target="_blank">Issue 13</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=90btoslriok&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=16" target="_blank">Issue 14</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=6wxUe3q_7Yg&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=17" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=ZKduUW1y8BA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=18" target="_blank">Issue 16</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=SE1bZEhS_nI&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=19" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=iuiwK8_I7PI&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=1"
+                      target="_blank">Issue 1</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=EKa5TVtobnQ&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=2"
+                      target="_blank">Issue 2</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=mq7gT1EuGPA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=3"
+                      target="_blank">Issue 3</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=PULbs6d1_Yg&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=4"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=i_J454wNY6Q&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=5"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=l9zzRiLVU0o&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=6"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=uIz11pTYMrA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=7"
+                      target="_blank">Issue 7 part 1</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=P_KD6Qa19_4&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=8"
+                      target="_blank">Issue 7 part 2</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=-hdnE_VDyCA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=9"
+                      target="_blank">Issue 8</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=1cFFLOCR74Q&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=10"
+                target="_blank">Issue 9 part 1</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=IsKbEveGkmU&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=11"
+                target="_blank">Issue 9 part 2</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=eeS436Zp7Vs&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=12"
+                target="_blank">Issue 10</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=M5A88wUvpsY&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=13"
+                target="_blank">Issue 11</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=qI-JRUGIch4&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=14"
+                target="_blank">Issue 12</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=G3WrpITTtag&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=15"
+                target="_blank">Issue 13</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=90btoslriok&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=16"
+                target="_blank">Issue 14</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=6wxUe3q_7Yg&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=17"
+                target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=ZKduUW1y8BA&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=18"
+                target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a
+                href="https://www.youtube.com/watch?v=SE1bZEhS_nI&list=PLulhhfF73uBiBdRoxHVBk5-Sp1_JpiMYq&index=19"
+                target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 5</big></b></button>
     <div class="panel">
-      <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                      target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                      target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 6</big></b></button>
     <div class="panel">
-        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                      target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                      target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 7</big></b></button>
     <div class="panel">
-        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                      target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                      target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 8</big></b></button>
     <div class="panel">
-       <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                      target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                      target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 9</big></b></button>
     <div class="panel">
-        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                      target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                      target="_blank">Issue 17</a></p></big></b>
     </div>
 
     <button class="accordion text-center "><b><big>Season 10</big></b></button>
     <div class="panel">
-        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1" target="_blank">Issue 4</a></p></big></b>
-        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2" target="_blank">Issue 5</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3" target="_blank">Issue 6</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4" target="_blank">Issue 7</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5" target="_blank">Issue 9</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6" target="_blank">Issue 15</a></p></big></b>
-      <b><big>  <p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7" target="_blank">Issue 16</a></p></big></b>
-       <b><big> <p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8" target="_blank">Issue 17</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=R87mZYvQcDI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=1"
+                      target="_blank">Issue 4</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=GdXoHnQEG24&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=2"
+                      target="_blank">Issue 5</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=eWRVGgab3eU&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=3"
+                      target="_blank">Issue 6</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=pecDeuHALIc&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=4"
+                      target="_blank">Issue 7</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=KFc9kq_9lpI&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=5"
+                      target="_blank">Issue 9</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=sA4nEQDHyU4&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=6"
+                      target="_blank">Issue 15</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9NvOBjNgsWM&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=7"
+                      target="_blank">Issue 16</a></p></big></b>
+        <b><big><p><a href="https://www.youtube.com/watch?v=9lMjeDtbDKs&list=PLulhhfF73uBiiFf-3j6xuWLQzPQc0Gzrk&index=8"
+                      target="_blank">Issue 17</a></p></big></b>
     </div>
 
 </div>
 
 <button class="accordion text-center "><b><big><big>Gordon Ramsay</big></big></b></button>
 <div class="panel">
-    <b><big> <p><a href="https://www.youtube.com/watch?v=a83OQQ900Mc" target="_blank">Snacking Recipes</a></p></big></b>
+    <b><big><p><a href="https://www.youtube.com/watch?v=a83OQQ900Mc" target="_blank">Snacking Recipes</a></p></big></b>
 </div>
 </div>
 <button class="accordion text-center "><b><big><big>Tasty</big></big></b></button>
 <div class="panel">
-    <b><big> <p><a href="https://www.youtube.com/watch?v=fcD94e93cCk" target="_blank">20 Recipes You Should Learn In Your 20s ? Tasty</a></p></big></b>
+    <b><big><p><a href="https://www.youtube.com/watch?v=fcD94e93cCk" target="_blank">20 Recipes You Should Learn In Your
+        20s ? Tasty</a></p></big></b>
 </div>
 </div>
 
@@ -276,7 +405,7 @@
     var i;
 
     for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
+        acc[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
@@ -287,7 +416,6 @@
         });
     }
 </script>
-
 
 
 <footer class="my-5 pt-5 text-black text-center text-small">

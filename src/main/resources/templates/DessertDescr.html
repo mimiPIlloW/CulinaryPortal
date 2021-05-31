@@ -3,7 +3,7 @@
 <head>
     <head th:fragment="header-css">
         <title>CulinaryPortal</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,11 +31,9 @@
 <body>
 
 
-
-
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+        <a class="navbar-brand" href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,24 +43,26 @@
                     <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking recipes </i></a>
+                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking
+                        recipes</i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum </i></a>
+                    <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum</i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/video}"> <i class="fab fa-youtube"> Video </i></a>
+                    <a class="nav-link" th:href="@{/video}"> <b><i class="fab fa-youtube"> Video</i></b></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper">Newspaper </i></a>
+                    <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper"> Newspaper</i></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell"> Culinary establishments </i></a>
+                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell">
+                        Culinary establishments</i></a>
                 </li>
             </ul>
         </div>
         <form th:action="@{/logout}" method="post">
-            <input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
+            <input type="submit" class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
         </form>
     </nav>
 </header>
@@ -77,9 +77,9 @@
     }
 </style>
 
-<div class="container mt-5 bg-dark text-white rounded" >
+<div class="container mt-5 bg-dark text-white rounded">
     <div class="container mt-5 mb-5 ">
-        <h1>Dessert</h1>
+        <h1>Desserts</h1>
         <p th:text="${desserts.getName()}"/>
         <p th:text="${desserts.getDescription()}"/>
         <p th:text="${desserts.getIngridients()}"/>

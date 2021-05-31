@@ -13,11 +13,12 @@ public class Salad {
 
     private String name;
     private String description;
-    private String ingridients;
     private String time;
     private String servings;
     private String ennergyValue;
     private String image;
+    private String ingridients;
+    private String preparation;
 
     @ManyToOne
     private CookingRecipesGroup cookingRecipesGroup;

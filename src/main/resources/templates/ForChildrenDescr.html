@@ -77,15 +77,41 @@
     }
 </style>
 
-<div class="container mt-5 bg-dark text-white rounded">
-    <div class="container mt-5 mb-5 ">
-        <h1>For children</h1>
-        <p th:text="${children.getName()}"/>
-        <p th:text="${children.getDescription()}"/>
-        <p th:text="${children.getIngridients()}"/>
-        <p th:text="${children.getTime()}"/>
-        <p th:text="${children.getServings()}"/>
-        <p th:text="${children.getEnnergyValue()}"/>
+<div class="container mt-5 text-white rounded" style="background: #044053">
+    <div class="container mt-5 mb-5 text-center">
+        <h1> <p th:text="${children.getName()}"/></h1>
+        <div class="container text-center" style="background: #106783">
+            <img th:src="${'/img/'+children.getImage()}"
+                 class="col mx-auto d-block">
+        </div>
+        <div class="container mt-5 mb-5 border border-secondary rounded text-center" style="background: #106783"
+             sec:authorize="isAuthenticated()">
+            <h5 class="text-white mt-3"> Description</h5>
+            <div class="input-group text-center ">
+                <textarea class="form-control" id="description" name="newInfo" th:text="${children.getDescription()}" rows="5" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Ingridients</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="ingridients" name="newInfo" th:text="${children.getIngridients()}" rows="5" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Time</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="Time" name="newInfo" th:text="${children.getTime()}" rows="1" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Servings</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="Servings" name="newInfo" th:text="${children.getServings()}" rows="1" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Ennergy value</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="EnnergyValue" name="newInfo" th:text="${children.getEnnergyValue()}" rows="5" readonly></textarea>
+            </div>
+        </div>
+
+        <div class=" mt-5 text-center">
+            <h1>Enjoy your meal</h1>
+        </div>
+
     </div>
 </div>
 </div>

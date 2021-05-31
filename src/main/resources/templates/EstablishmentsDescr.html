@@ -77,14 +77,33 @@
     }
 </style>
 
-<div class="container mt-5 bg-dark text-white rounded">
-    <div class="container mt-5 mb-5 ">
-        <h1>Establishments</h1>
-        <p th:text="${establishments.getName()}"/>
-        <p th:text="${establishments.getDescription()}"/>
-        <p th:text="${establishments.getAddress()}"/>
-        <p th:text="${establishments.getOpening_hours()}"/>
-        <p th:text="${establishments.getTelephone()}"/>
+<div class="container mt-5 text-white rounded" style="background: #044053">
+    <div class="container mt-5 mb-5 text-center">
+        <h1> <p th:text="${establishments.getName()}"/></h1>
+        <div class="container text-center" style="background: #106783">
+            <img th:src="${'/img/'+establishments.getImage()}"
+                 class="col mx-auto d-block">
+        </div>
+        <div class="container mt-5 mb-5 border border-secondary rounded text-center" style="background: #106783"
+             sec:authorize="isAuthenticated()">
+            <h5 class="text-white mt-3"> Description</h5>
+            <div class="input-group text-center ">
+                <textarea class="form-control" id="description" name="newInfo" th:text="${establishments.getDescription()}" rows="5" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Adress</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="Adress" name="newInfo" th:text="${establishments.getAddress()}" rows="5" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Opening hours</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="OpeningHours" name="newInfo" th:text="${establishments.getOpening_hours()}" rows="2" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Telephone</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="Telephone" name="newInfo" th:text="${establishments.getTelephone()}" rows="1" readonly></textarea>
+            </div>
+        </div>
+
     </div>
 </div>
 </div>

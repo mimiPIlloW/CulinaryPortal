@@ -44,6 +44,7 @@ public class SaladContr {
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam String ingridients,
+            @RequestParam String preparation,
             @RequestParam String time,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
@@ -52,6 +53,7 @@ public class SaladContr {
         salad.setName(name);
         salad.setDescription(description);
         salad.setIngridients(ingridients);
+        salad.setPreparation(preparation);
         salad.setTime(time);
         salad.setServings(servings);
         salad.setEnnergyValue(ennergyValue);

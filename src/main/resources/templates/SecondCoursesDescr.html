@@ -3,7 +3,7 @@
 <head>
     <head th:fragment="header-css">
         <title>CulinaryPortal</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,11 +31,9 @@
 <body>
 
 
-
-
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand"   href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
+        <a class="navbar-brand" href="#">CULINARY P<i class="fa fa-circle"></i>RTAL</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,7 +43,8 @@
                     <a class="nav-link" th:href="@{/home}"><i class="fas fa-home"> Home</i><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking recipes</i></a>
+                    <a class="nav-link" th:href="@{/cooking_recipes}"> <i class="fas fa-utensils"> Cooking
+                        recipes</i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/forum}"> <i class="fas fa-comments"> Forum</i></a>
@@ -57,12 +56,13 @@
                     <a class="nav-link  " th:href="@{/newspaper}"> <i class="fas fa-newspaper"> Newspaper</i></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell"> Culinary establishments</i></a>
+                    <a class="nav-link " th:href="@{/culinary_establishments}"> <i class="fas fa-concierge-bell">
+                        Culinary establishments</i></a>
                 </li>
             </ul>
         </div>
         <form th:action="@{/logout}" method="post">
-            <input type="submit"class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
+            <input type="submit" class="btn btn-danger" data-toggle="popover" value="Sign Out"/>
         </form>
     </nav>
 </header>
@@ -77,15 +77,41 @@
     }
 </style>
 
-<div class="container mt-5 bg-dark text-white rounded" >
-    <div class="container mt-5 mb-5 ">
-        <h1>Second courses</h1>
-        <p th:text="${secondCourses.getName()}"/>
-        <p th:text="${secondCourses.getDescription()}"/>
-        <p th:text="${secondCourses.getIngridients()}"/>
-        <p th:text="${secondCourses.getTime()}"/>
-        <p th:text="${secondCourses.getServings()}"/>
-        <p th:text="${secondCourses.getEnnergyValue()}"/>
+<div class="container mt-5 text-white rounded" style="background: #044053">
+    <div class="container mt-5 mb-5 text-center">
+        <h1> <p th:text="${secondCourses.getName()}"/></h1>
+        <div class="container text-center" style="background: #106783">
+            <img th:src="${'/img/'+secondCourses.getImage()}"
+                 class="col mx-auto d-block">
+        </div>
+        <div class="container mt-5 mb-5 border border-secondary rounded text-center" style="background: #106783"
+             sec:authorize="isAuthenticated()">
+            <h5 class="text-white mt-3"> Description</h5>
+            <div class="input-group text-center ">
+                <textarea class="form-control" id="description" name="newInfo" th:text="${secondCourses.getDescription()}" rows="5" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Ingridients</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="ingridients" name="newInfo" th:text="${secondCourses.getIngridients()}" rows="5" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Time</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="Time" name="newInfo" th:text="${secondCourses.getTime()}" rows="1" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Servings</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="Servings" name="newInfo" th:text="${secondCourses.getServings()}" rows="1" readonly></textarea>
+            </div>
+            <h5 class="text-white mt-3"> Ennergy value</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="EnnergyValue" name="newInfo" th:text="${secondCourses.getEnnergyValue()}" rows="5" readonly></textarea>
+            </div>
+        </div>
+
+        <div class=" mt-5 text-center">
+            <h1>Enjoy your meal</h1>
+        </div>
+
     </div>
 </div>
 </div>

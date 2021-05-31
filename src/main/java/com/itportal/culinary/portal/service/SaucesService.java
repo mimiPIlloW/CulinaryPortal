@@ -13,16 +13,17 @@ public class SaucesService {
     @Autowired
     SaucesRepo saucesRepo;
 
-    public List<Sauces> findAll(){
+    public List<Sauces> findAll() {
         return saucesRepo.findAll();
     }
-    public Sauces findByName(String name){
+
+    public Sauces findByName(String name) {
         return saucesRepo.findByName(name);
     }
 
-    public Sauces findById(long id){
-        Optional<Sauces> sauces=saucesRepo.findById(id);
-        if(sauces.isPresent()) {
+    public Sauces findById(long id) {
+        Optional<Sauces> sauces = saucesRepo.findById(id);
+        if (sauces.isPresent()) {
             return sauces.get();
         }
         throw new RuntimeException();

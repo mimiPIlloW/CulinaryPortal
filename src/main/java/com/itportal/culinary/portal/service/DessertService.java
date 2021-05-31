@@ -13,16 +13,17 @@ public class DessertService {
     @Autowired
     DessertsRepo dessertsRepo;
 
-    public List<Desserts> findAll(){
+    public List<Desserts> findAll() {
         return dessertsRepo.findAll();
     }
-    public Desserts findByName(String name){
+
+    public Desserts findByName(String name) {
         return dessertsRepo.findByName(name);
     }
 
-    public Desserts findById(long id){
-        Optional<Desserts> desserts=dessertsRepo.findById(id);
-        if(desserts.isPresent()) {
+    public Desserts findById(long id) {
+        Optional<Desserts> desserts = dessertsRepo.findById(id);
+        if (desserts.isPresent()) {
             return desserts.get();
         }
         throw new RuntimeException();

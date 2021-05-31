@@ -14,16 +14,17 @@ public class SoupsService {
     @Autowired
     SoupsRep soupsRep;
 
-    public List<Soups> findAll(){
+    public List<Soups> findAll() {
         return soupsRep.findAll();
     }
-    public Soups findByName(String name){
+
+    public Soups findByName(String name) {
         return soupsRep.findByName(name);
     }
 
-    public Soups findById(long id){
-        Optional<Soups> soups=soupsRep.findById(id);
-        if(soups.isPresent()) {
+    public Soups findById(long id) {
+        Optional<Soups> soups = soupsRep.findById(id);
+        if (soups.isPresent()) {
             return soups.get();
         }
         throw new RuntimeException();

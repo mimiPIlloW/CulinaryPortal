@@ -14,16 +14,17 @@ public class DietService {
     @Autowired
     DietRepo dietRepo;
 
-    public List<Diet> findAll(){
+    public List<Diet> findAll() {
         return dietRepo.findAll();
     }
-    public Diet findByName(String name){
+
+    public Diet findByName(String name) {
         return dietRepo.findByName(name);
     }
 
-    public Diet findById(long id){
-        Optional<Diet> diet=dietRepo.findById(id);
-        if(diet.isPresent()) {
+    public Diet findById(long id) {
+        Optional<Diet> diet = dietRepo.findById(id);
+        if (diet.isPresent()) {
             return diet.get();
         }
         throw new RuntimeException();

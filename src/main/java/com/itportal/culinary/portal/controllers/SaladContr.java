@@ -46,7 +46,7 @@ public class SaladContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Salad salad = new Salad();
         salad.setName(name);
@@ -70,9 +70,10 @@ public class SaladContr {
         model.addAttribute("allSalad", message);
         return "Salad";
     }
+
     @GetMapping("/salad/{id}")
     public String detailsSaladId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                 Model model) {
 
         model.addAttribute("salad", saladService.findById(id));
         return "SaladDescr";
@@ -80,10 +81,10 @@ public class SaladContr {
 
     @PostMapping("/salad/{id}/delete")
     public String deleteSaladId(@PathVariable(name = "id") long id,
-                                  Model model) {
+                                Model model) {
         Salad salad = saladRep.findById(id).orElseThrow();
         saladRep.delete(salad);
-        return "redirect:/salad" ;
+        return "redirect:/salad";
     }
 
 }

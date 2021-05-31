@@ -41,7 +41,7 @@ public class DessertsContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Desserts desserts = new Desserts();
         desserts.setName(name);
@@ -50,16 +50,16 @@ public class DessertsContr {
         desserts.setTime(time);
         desserts.setServings(servings);
         desserts.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             desserts.setImage(resultFilename);
         }
@@ -76,9 +76,10 @@ public class DessertsContr {
         model.addAttribute("desserts", dessertService.findById(id));
         return "DessertDescr";
     }
+
     @PostMapping("/desserts/{id}/delete")
     public String deleteDessertsId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                   Model model) {
         Desserts desserts = dessertsRepo.findById(id).orElseThrow();
         dessertsRepo.delete(desserts);
         return "redirect:/desserts";

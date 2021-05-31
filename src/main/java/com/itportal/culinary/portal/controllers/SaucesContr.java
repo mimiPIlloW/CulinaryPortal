@@ -30,7 +30,7 @@ public class SaucesContr {
 
     @GetMapping("/sauces")
     public String main(Model model) {
-        Iterable<Sauces> message =saucesRepo.findAll();
+        Iterable<Sauces> message = saucesRepo.findAll();
 
         model.addAttribute("allSauces", message);
         return "Sauces";
@@ -43,7 +43,7 @@ public class SaucesContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Sauces sauces = new Sauces();
         sauces.setName(name);
@@ -52,16 +52,16 @@ public class SaucesContr {
         sauces.setTime(time);
         sauces.setServings(servings);
         sauces.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             sauces.setImage(resultFilename);
         }
@@ -73,7 +73,7 @@ public class SaucesContr {
 
     @GetMapping("/sauces/{id}")
     public String detailsSaucesId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                  Model model) {
 
         model.addAttribute("sauces", saucesService.findById(id));
         return "SaucesDescr";
@@ -81,7 +81,7 @@ public class SaucesContr {
 
     @PostMapping("/sauces/{id}/delete")
     public String deleteSaucesId(@PathVariable(name = "id") long id,
-                                  Model model) {
+                                 Model model) {
         Sauces sauces = saucesRepo.findById(id).orElseThrow();
         saucesRepo.delete(sauces);
         return "redirect:/sauces";

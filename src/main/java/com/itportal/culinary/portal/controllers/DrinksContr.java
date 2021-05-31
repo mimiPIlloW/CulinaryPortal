@@ -41,7 +41,7 @@ public class DrinksContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Drinks drinks = new Drinks();
         drinks.setName(name);
@@ -50,16 +50,16 @@ public class DrinksContr {
         drinks.setTime(time);
         drinks.setServings(servings);
         drinks.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             drinks.setImage(resultFilename);
         }
@@ -71,14 +71,15 @@ public class DrinksContr {
 
     @GetMapping("/drinks/{id}")
     public String detailsDrinksId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                  Model model) {
 
         model.addAttribute("drinks", drinksService.findById(id));
         return "DrinksDescr";
     }
+
     @PostMapping("/drinks/{id}/delete")
     public String deleteDrinksId(@PathVariable(name = "id") long id,
-                                  Model model) {
+                                 Model model) {
         Drinks drinks = drinksRep.findById(id).orElseThrow();
         drinksRep.delete(drinks);
         return "redirect:/drinks";

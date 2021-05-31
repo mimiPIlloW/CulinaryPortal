@@ -14,16 +14,17 @@ public class PicnicService {
     @Autowired
     PicnicRepo picnicRepo;
 
-    public List<Picnic> findAll(){
+    public List<Picnic> findAll() {
         return picnicRepo.findAll();
     }
-    public Picnic findByName(String name){
+
+    public Picnic findByName(String name) {
         return picnicRepo.findByName(name);
     }
 
-    public Picnic findById(long id){
-        Optional<Picnic> picnic=picnicRepo.findById(id);
-        if(picnic.isPresent()) {
+    public Picnic findById(long id) {
+        Optional<Picnic> picnic = picnicRepo.findById(id);
+        if (picnic.isPresent()) {
             return picnic.get();
         }
         throw new RuntimeException();

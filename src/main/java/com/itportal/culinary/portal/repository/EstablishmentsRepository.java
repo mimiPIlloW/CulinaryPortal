@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface EstablishmentsRepository extends CrudRepository<Establishments, Long> {
     List<Establishments> findAll();
+
     Establishments findByName(String name);
 }

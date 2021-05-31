@@ -42,7 +42,7 @@ public class MarinadesContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Marinades marinades = new Marinades();
         marinades.setName(name);
@@ -51,16 +51,16 @@ public class MarinadesContr {
         marinades.setTime(time);
         marinades.setServings(servings);
         marinades.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             marinades.setImage(resultFilename);
         }
@@ -72,14 +72,15 @@ public class MarinadesContr {
 
     @GetMapping("/marinades/{id}")
     public String detailsMarinadesId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                     Model model) {
 
         model.addAttribute("marinades", marinadesService.findById(id));
         return "MarinadesDescr";
     }
+
     @PostMapping("/marinades/{id}/delete")
     public String deleteMarinadesId(@PathVariable(name = "id") long id,
-                                     Model model) {
+                                    Model model) {
         Marinades marinades = marinadesRepo.findById(id).orElseThrow();
         marinadesRepo.delete(marinades);
         return "redirect:/marinades";

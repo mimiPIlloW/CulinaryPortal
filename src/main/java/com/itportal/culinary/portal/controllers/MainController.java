@@ -21,17 +21,19 @@ public class MainController {
 
     @GetMapping("/about")
     public String abouts(Model model) {
-         model.addAttribute("title","About us");
-         return "aboutUs";
+        model.addAttribute("title", "About us");
+        return "aboutUs";
     }
+
     @GetMapping("/video")
     public String video(Model model) {
-        model.addAttribute("title","About us");
+        model.addAttribute("title", "About us");
         return "video";
     }
+
     @GetMapping("/cooking_recipes")
     public String tsded(Model model) {
-        model.addAttribute("title","About us");
+        model.addAttribute("title", "About us");
         return "CulinarGroup";
     }
 }

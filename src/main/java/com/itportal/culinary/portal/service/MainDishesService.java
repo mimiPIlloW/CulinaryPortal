@@ -13,16 +13,17 @@ public class MainDishesService {
     @Autowired
     MainDishesRepo mainDishesRepo;
 
-    public List<MainDishes> findAll(){
+    public List<MainDishes> findAll() {
         return mainDishesRepo.findAll();
     }
-    public MainDishes findByName(String name){
+
+    public MainDishes findByName(String name) {
         return mainDishesRepo.findByName(name);
     }
 
-    public MainDishes findById(long id){
-        Optional<MainDishes> dishes=mainDishesRepo.findById(id);
-        if(dishes.isPresent()) {
+    public MainDishes findById(long id) {
+        Optional<MainDishes> dishes = mainDishesRepo.findById(id);
+        if (dishes.isPresent()) {
             return dishes.get();
         }
         throw new RuntimeException();

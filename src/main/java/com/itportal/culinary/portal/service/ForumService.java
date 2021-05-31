@@ -14,16 +14,17 @@ public class ForumService {
     @Autowired
     ForumRepository forumRepository;
 
-    public List<ForumEntity> findAll(){
+    public List<ForumEntity> findAll() {
         return forumRepository.findAll();
     }
-    public ForumEntity findByName(String name){
+
+    public ForumEntity findByName(String name) {
         return forumRepository.findByName(name);
     }
 
-    public ForumEntity findById(long id){
-        Optional<ForumEntity> forum=forumRepository.findById(id);
-        if(forum.isPresent()) {
+    public ForumEntity findById(long id) {
+        Optional<ForumEntity> forum = forumRepository.findById(id);
+        if (forum.isPresent()) {
             return forum.get();
         }
         throw new RuntimeException();

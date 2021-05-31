@@ -14,16 +14,17 @@ public class MarinadesService {
     @Autowired
     MarinadesRepo marinadesRepo;
 
-    public List<Marinades> findAll(){
+    public List<Marinades> findAll() {
         return marinadesRepo.findAll();
     }
-    public Marinades findByName(String name){
+
+    public Marinades findByName(String name) {
         return marinadesRepo.findByName(name);
     }
 
-    public Marinades findById(long id){
-        Optional<Marinades> marinades=marinadesRepo.findById(id);
-        if(marinades.isPresent()) {
+    public Marinades findById(long id) {
+        Optional<Marinades> marinades = marinadesRepo.findById(id);
+        if (marinades.isPresent()) {
             return marinades.get();
         }
         throw new RuntimeException();

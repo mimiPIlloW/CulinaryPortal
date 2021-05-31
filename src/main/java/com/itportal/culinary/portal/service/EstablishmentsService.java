@@ -14,16 +14,17 @@ public class EstablishmentsService {
     @Autowired
     EstablishmentsRepository establishmentsRepository;
 
-    public List<Establishments> findAll(){
+    public List<Establishments> findAll() {
         return establishmentsRepository.findAll();
     }
-    public Establishments findByName(String name){
+
+    public Establishments findByName(String name) {
         return establishmentsRepository.findByName(name);
     }
 
-    public Establishments findById(long id){
-        Optional<Establishments> establishments=establishmentsRepository.findById(id);
-        if(establishments.isPresent()) {
+    public Establishments findById(long id) {
+        Optional<Establishments> establishments = establishmentsRepository.findById(id);
+        if (establishments.isPresent()) {
             return establishments.get();
         }
         throw new RuntimeException();

@@ -5,7 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface SnacksRep  extends CrudRepository<Snacks, Long> {
+public interface SnacksRep extends CrudRepository<Snacks, Long> {
     List<Snacks> findAll();
+
     Snacks findByName(String name);
 }

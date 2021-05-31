@@ -14,16 +14,17 @@ public class GarnishService {
     @Autowired
     GarnishRep garnishRep;
 
-    public List<Garnish> findAll(){
+    public List<Garnish> findAll() {
         return garnishRep.findAll();
     }
-    public Garnish findByName(String name){
+
+    public Garnish findByName(String name) {
         return garnishRep.findByName(name);
     }
 
-    public Garnish findById(long id){
-        Optional<Garnish> garnish=garnishRep.findById(id);
-        if(garnish.isPresent()) {
+    public Garnish findById(long id) {
+        Optional<Garnish> garnish = garnishRep.findById(id);
+        if (garnish.isPresent()) {
             return garnish.get();
         }
         throw new RuntimeException();

@@ -42,7 +42,7 @@ public class PicnicController {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Picnic picnic = new Picnic();
         picnic.setName(name);
@@ -51,16 +51,16 @@ public class PicnicController {
         picnic.setTime(time);
         picnic.setServings(servings);
         picnic.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             picnic.setImage(resultFilename);
         }
@@ -72,14 +72,15 @@ public class PicnicController {
 
     @GetMapping("/picnic/{id}")
     public String detailsPicnicId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                  Model model) {
 
         model.addAttribute("picnic", picnicService.findById(id));
         return "PicnicDescr";
     }
+
     @PostMapping("/picnic/{id}/delete")
     public String deletePicnicId(@PathVariable(name = "id") long id,
-                                  Model model) {
+                                 Model model) {
         Picnic picnic = picnicRepo.findById(id).orElseThrow();
         picnicRepo.delete(picnic);
         return "redirect:/picnic";

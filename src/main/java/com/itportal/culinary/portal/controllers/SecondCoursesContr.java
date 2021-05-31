@@ -43,7 +43,7 @@ public class SecondCoursesContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         SecondCourses secondCourses = new SecondCourses();
         secondCourses.setName(name);
@@ -52,16 +52,16 @@ public class SecondCoursesContr {
         secondCourses.setTime(time);
         secondCourses.setServings(servings);
         secondCourses.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             secondCourses.setImage(resultFilename);
         }
@@ -73,7 +73,7 @@ public class SecondCoursesContr {
 
     @GetMapping("/second_courses/{id}")
     public String detailsSecondCoursessId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                          Model model) {
 
         model.addAttribute("secondCourses", secondCoursesService.findById(id));
         return "SecondCoursesDescr";
@@ -81,7 +81,7 @@ public class SecondCoursesContr {
 
     @PostMapping("/second_courses/{id}/delete")
     public String deleteSecondCoursessId(@PathVariable(name = "id") long id,
-                                          Model model) {
+                                         Model model) {
         SecondCourses secondCourses = secondCoursesRep.findById(id).orElseThrow();
         secondCoursesRep.delete(secondCourses);
         return "redirect:/second_courses";

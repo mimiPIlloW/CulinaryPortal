@@ -42,7 +42,7 @@ public class MainDishesContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         MainDishes mainDishes = new MainDishes();
         mainDishes.setName(name);
@@ -51,16 +51,16 @@ public class MainDishesContr {
         mainDishes.setTime(time);
         mainDishes.setServings(servings);
         mainDishes.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             mainDishes.setImage(resultFilename);
         }
@@ -72,14 +72,15 @@ public class MainDishesContr {
 
     @GetMapping("/main_dishes/{id}")
     public String detailsMainDishesId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                      Model model) {
 
         model.addAttribute("dishes", mainDishesService.findById(id));
         return "MainDishesDescr";
     }
+
     @PostMapping("/main_dishes/{id}/delete")
     public String deleteMainDishesId(@PathVariable(name = "id") long id,
-                                      Model model) {
+                                     Model model) {
         MainDishes mainDishes = mainDishesRepo.findById(id).orElseThrow();
         mainDishesRepo.delete(mainDishes);
         return "redirect:/main_dishes";

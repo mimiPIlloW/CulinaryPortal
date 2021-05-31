@@ -14,7 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
 
-    public WebSecurityConfig( UserService userService) {
+    public WebSecurityConfig(UserService userService) {
         this.userService = userService;
     }
 

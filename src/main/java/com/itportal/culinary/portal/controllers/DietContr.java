@@ -42,7 +42,7 @@ public class DietContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Diet diet = new Diet();
         diet.setName(name);
@@ -51,16 +51,16 @@ public class DietContr {
         diet.setTime(time);
         diet.setServings(servings);
         diet.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             diet.setImage(resultFilename);
         }
@@ -72,14 +72,15 @@ public class DietContr {
 
     @GetMapping("/diet_food/{id}")
     public String detailsDietId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                Model model) {
 
         model.addAttribute("diet", dietService.findById(id));
         return "DietDescr";
     }
+
     @PostMapping("/diet_food/{id}/delete")
     public String deleteDietId(@PathVariable(name = "id") long id,
-                                Model model) {
+                               Model model) {
         Diet diet = dietRepo.findById(id).orElseThrow();
         dietRepo.delete(diet);
         return "redirect:/diet_food";

@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface SaucesRepo extends CrudRepository<Sauces, Long> {
     List<Sauces> findAll();
+
     Sauces findByName(String name);
 }

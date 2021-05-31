@@ -43,7 +43,7 @@ public class EstablishmentsController {
                       @RequestParam String address,
                       @RequestParam String opening_hours,
                       @RequestParam String telephone, Model model,
-                      @RequestParam(name = "file" , required = false) MultipartFile file) throws IOException {
+                      @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Establishments establishments = new Establishments();
         establishments.setName(name);
         establishments.setDescription(description);
@@ -51,16 +51,16 @@ public class EstablishmentsController {
         establishments.setOpening_hours(opening_hours);
         establishments.setTelephone(telephone);
 
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             establishments.setImage(resultFilename);
         }
@@ -76,7 +76,7 @@ public class EstablishmentsController {
 
     @GetMapping("/culinary_establishments/{id}")
     public String detailsEstablishmentsId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                          Model model) {
 
         model.addAttribute("establishments", establishmentsService.findById(id));
         return "EstablishmentsDescr";
@@ -84,7 +84,7 @@ public class EstablishmentsController {
 
     @PostMapping("/culinary_establishments/{id}/delete")
     public String deleteEstablishmentsId(@PathVariable(name = "id") long id,
-                                          Model model) {
+                                         Model model) {
         Establishments establishments = establishmentsRepository.findById(id).orElseThrow();
         establishmentsRepository.delete(establishments);
         return "redirect:/culinary_establishments";

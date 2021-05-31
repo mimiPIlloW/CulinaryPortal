@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ChildrenRepo extends CrudRepository<Children, Long> {
     List<Children> findAll();
+
     Children findByName(String name);
 }

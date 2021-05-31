@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface DessertsRepo extends CrudRepository <Desserts, Long>{
     List<Desserts> findAll();
+
     Desserts findByName(String name);
 }

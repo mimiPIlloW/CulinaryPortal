@@ -43,25 +43,25 @@ public class SoupsContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
-       Soups soups = new Soups();
+        Soups soups = new Soups();
         soups.setName(name);
         soups.setDescription(description);
         soups.setIngridients(ingridients);
         soups.setTime(time);
         soups.setServings(servings);
         soups.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             soups.setImage(resultFilename);
         }
@@ -73,15 +73,15 @@ public class SoupsContr {
 
     @GetMapping("/soups/{id}")
     public String detailsSoupsId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                 Model model) {
 
-        model.addAttribute("soups",soupsService.findById(id));
+        model.addAttribute("soups", soupsService.findById(id));
         return "SoupsDescr";
     }
 
     @PostMapping("/soups/{id}/delete")
     public String deleteSoupsId(@PathVariable(name = "id") long id,
-                                 Model model) {
+                                Model model) {
         Soups soups = soupsRep.findById(id).orElseThrow();
         soupsRep.delete(soups);
         return "redirect:/soups";

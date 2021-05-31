@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface SecondCoursesRep extends CrudRepository<SecondCourses, Long> {
     List<SecondCourses> findAll();
+
     SecondCourses findByName(String name);
 }

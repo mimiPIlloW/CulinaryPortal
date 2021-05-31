@@ -13,16 +13,17 @@ public class BreakfastService {
     @Autowired
     BreakfastRepo breakfastRepo;
 
-    public List<Breakfast> findAll(){
+    public List<Breakfast> findAll() {
         return breakfastRepo.findAll();
     }
-    public Breakfast findByName(String name){
+
+    public Breakfast findByName(String name) {
         return breakfastRepo.findByName(name);
     }
 
-    public Breakfast findById(long id){
-        Optional<Breakfast> breakfast=breakfastRepo.findById(id);
-        if(breakfast.isPresent()) {
+    public Breakfast findById(long id) {
+        Optional<Breakfast> breakfast = breakfastRepo.findById(id);
+        if (breakfast.isPresent()) {
             return breakfast.get();
         }
         throw new RuntimeException();

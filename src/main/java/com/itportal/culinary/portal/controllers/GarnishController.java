@@ -43,7 +43,7 @@ public class GarnishController {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Garnish garnish = new Garnish();
         garnish.setName(name);
@@ -52,16 +52,16 @@ public class GarnishController {
         garnish.setTime(time);
         garnish.setServings(servings);
         garnish.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             garnish.setImage(resultFilename);
         }
@@ -73,7 +73,7 @@ public class GarnishController {
 
     @GetMapping("/side_dishes/{id}")
     public String detailsSideDishesId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                      Model model) {
 
         model.addAttribute("garnish", garnishService.findById(id));
         return "GarnishDescr";
@@ -81,7 +81,7 @@ public class GarnishController {
 
     @PostMapping("/side_dishes/{id}/delete")
     public String deleteSideDishesId(@PathVariable(name = "id") long id,
-                                      Model model) {
+                                     Model model) {
         Garnish garnish = garnishRep.findById(id).orElseThrow();
         garnishRep.delete(garnish);
         return "redirect:/side_dishes";

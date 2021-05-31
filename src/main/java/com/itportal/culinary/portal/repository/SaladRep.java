@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface SaladRep extends CrudRepository<Salad, Long> {
     List<Salad> findAll();
+
     Salad findByName(String name);
 }

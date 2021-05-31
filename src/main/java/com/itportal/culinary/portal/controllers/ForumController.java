@@ -29,8 +29,8 @@ public class ForumController {
     }
 
     @PostMapping("/forum")
-    public String add(@RequestParam String name,String anons, String full_text,  Model model) {
-        ForumEntity message = new ForumEntity ();
+    public String add(@RequestParam String name, String anons, String full_text, Model model) {
+        ForumEntity message = new ForumEntity();
         message.setName(name);
         message.setFull_text(full_text);
         message.setAnons(anons);
@@ -46,14 +46,15 @@ public class ForumController {
 
     @GetMapping("/forum/{id}")
     public String detailsForumId(@PathVariable(name = "id") long id,
-                                   Model model) {
+                                 Model model) {
 
         model.addAttribute("forum", forumService.findById(id));
         return "ForumDescr";
     }
+
     @PostMapping("/forum/{id}/delete")
     public String deleteForumId(@PathVariable(name = "id") long id,
-                                 Model model) {
+                                Model model) {
         ForumEntity forumEntity = forumRepository.findById(id).orElseThrow();
         forumRepository.delete(forumEntity);
         return "redirect:/forum";

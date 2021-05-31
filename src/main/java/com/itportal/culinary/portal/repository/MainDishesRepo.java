@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface MainDishesRepo extends CrudRepository<MainDishes, Long> {
     List<MainDishes> findAll();
+
     MainDishes findByName(String name);
 }

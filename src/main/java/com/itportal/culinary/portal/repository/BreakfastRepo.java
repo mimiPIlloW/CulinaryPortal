@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface BreakfastRepo extends CrudRepository<Breakfast, Long> {
     List<Breakfast> findAll();
+
     Breakfast findByName(String name);
 }

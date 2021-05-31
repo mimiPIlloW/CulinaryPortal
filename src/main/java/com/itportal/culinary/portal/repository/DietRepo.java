@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface DietRepo extends CrudRepository<Diet, Long> {
     List<Diet> findAll();
+
     Diet findByName(String name);
 }

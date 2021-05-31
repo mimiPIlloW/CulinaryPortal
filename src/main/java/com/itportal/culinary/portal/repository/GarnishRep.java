@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface GarnishRep extends CrudRepository<Garnish, Long> {
     List<Garnish> findAll();
+
     Garnish findByName(String name);
 }

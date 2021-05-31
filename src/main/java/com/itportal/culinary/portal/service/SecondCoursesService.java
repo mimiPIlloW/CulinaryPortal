@@ -14,16 +14,17 @@ public class SecondCoursesService {
     @Autowired
     SecondCoursesRep secondCoursesRep;
 
-    public List<SecondCourses> findAll(){
+    public List<SecondCourses> findAll() {
         return secondCoursesRep.findAll();
     }
-    public SecondCourses findByName(String name){
+
+    public SecondCourses findByName(String name) {
         return secondCoursesRep.findByName(name);
     }
 
-    public SecondCourses findById(long id){
-        Optional<SecondCourses> secondCourses=secondCoursesRep.findById(id);
-        if(secondCourses.isPresent()) {
+    public SecondCourses findById(long id) {
+        Optional<SecondCourses> secondCourses = secondCoursesRep.findById(id);
+        if (secondCourses.isPresent()) {
             return secondCourses.get();
         }
         throw new RuntimeException();

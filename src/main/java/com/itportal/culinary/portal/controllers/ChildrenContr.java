@@ -42,7 +42,7 @@ public class ChildrenContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Children children = new Children();
         children.setName(name);
@@ -51,16 +51,16 @@ public class ChildrenContr {
         children.setTime(time);
         children.setServings(servings);
         children.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             children.setImage(resultFilename);
         }
@@ -77,9 +77,10 @@ public class ChildrenContr {
         model.addAttribute("children", childrenService.findById(id));
         return "ForChildrenDescr";
     }
+
     @PostMapping("/for_children/{id}/delete")
     public String deleteChildrenId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                   Model model) {
         Children children = childrenRepo.findById(id).orElseThrow();
         childrenRepo.delete(children);
         return "redirect:/for_children";

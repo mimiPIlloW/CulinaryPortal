@@ -42,7 +42,7 @@ public class CannedContr {
             @RequestParam String ingridients,
             @RequestParam String time,
             @RequestParam String servings,
-            @RequestParam String ennergyValue,Model model,
+            @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
         Canned canned = new Canned();
         canned.setName(name);
@@ -51,16 +51,16 @@ public class CannedContr {
         canned.setTime(time);
         canned.setServings(servings);
         canned.setEnnergyValue(ennergyValue);
-        if(file !=null){
+        if (file != null) {
             File uploadDir = new File(uploadPath);
-            if (!uploadDir.exists()){
+            if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
 
             String uuidFile = UUID.randomUUID().toString();
-            String resultFilename =uuidFile + "." + file.getOriginalFilename();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
-            file.transferTo(new File(uploadPath +  "/" + resultFilename));
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
 
             canned.setImage(resultFilename);
         }
@@ -72,14 +72,15 @@ public class CannedContr {
 
     @GetMapping("/canned_food/{id}")
     public String detailsCannedId(@PathVariable(name = "id") long id,
-                                    Model model) {
+                                  Model model) {
 
         model.addAttribute("canned", cannedService.findById(id));
         return "CannedFoodDescr";
     }
+
     @PostMapping("/canned_food/{id}/delete")
     public String deleteCannedId(@PathVariable(name = "id") long id,
-                                  Model model) {
+                                 Model model) {
         Canned canned = cannedRepo.findById(id).orElseThrow();
         cannedRepo.delete(canned);
         return "redirect:/canned_food";

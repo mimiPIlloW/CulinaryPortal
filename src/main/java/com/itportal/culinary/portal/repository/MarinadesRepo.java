@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface MarinadesRepo extends CrudRepository<Marinades, Long> {
     List<Marinades> findAll();
+
     Marinades findByName(String name);
 }

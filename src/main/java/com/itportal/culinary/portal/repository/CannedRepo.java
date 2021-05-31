@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CannedRepo extends CrudRepository <Canned, Long> {
     List<Canned> findAll();
+
     Canned findByName(String name);
 }

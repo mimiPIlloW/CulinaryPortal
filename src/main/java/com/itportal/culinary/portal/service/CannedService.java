@@ -13,16 +13,17 @@ public class CannedService {
     @Autowired
     CannedRepo cannedRepo;
 
-    public List<Canned> findAll(){
+    public List<Canned> findAll() {
         return cannedRepo.findAll();
     }
-    public Canned findByName(String name){
+
+    public Canned findByName(String name) {
         return cannedRepo.findByName(name);
     }
 
-    public Canned findById(long id){
-        Optional<Canned> canned=cannedRepo.findById(id);
-        if(canned.isPresent()) {
+    public Canned findById(long id) {
+        Optional<Canned> canned = cannedRepo.findById(id);
+        if (canned.isPresent()) {
             return canned.get();
         }
         throw new RuntimeException();

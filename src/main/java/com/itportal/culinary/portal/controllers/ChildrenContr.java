@@ -41,6 +41,7 @@ public class ChildrenContr {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -48,6 +49,7 @@ public class ChildrenContr {
         children.setName(name);
         children.setDescription(description);
         children.setIngridients(ingridients);
+        children.setPreparation(preparation);
         children.setTime(time);
         children.setServings(servings);
         children.setEnnergyValue(ennergyValue);

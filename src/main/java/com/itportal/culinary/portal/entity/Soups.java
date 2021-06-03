@@ -18,6 +18,7 @@ public class Soups {
     private String servings;
     private String ennergyValue;
     private String image;
+    private String preparation;
 
     @ManyToOne
     private CookingRecipesGroup cookingRecipesGroup;

@@ -42,6 +42,7 @@ public class SnacksController {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -49,6 +50,7 @@ public class SnacksController {
         snacks.setName(name);
         snacks.setDescription(description);
         snacks.setIngridients(ingridients);
+        snacks.setPreparation(preparation);
         snacks.setTime(time);
         snacks.setServings(servings);
         snacks.setEnnergyValue(ennergyValue);

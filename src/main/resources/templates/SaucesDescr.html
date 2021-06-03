@@ -94,6 +94,10 @@
             <div class="input-group text-center">
                 <textarea class="form-control" id="ingridients" name="newInfo" th:text="${sauces.getIngridients()}" rows="5" readonly></textarea>
             </div>
+            <h5 class="text-white mt-3"> Cooking method</h5>
+            <div class="input-group text-center">
+                <textarea class="form-control" id="preparation" name="newInfo" th:text="${sauces.getPreparation()}" rows="5" readonly></textarea>
+            </div>
             <h5 class="text-white mt-3"> Time</h5>
             <div class="input-group text-center">
                 <textarea class="form-control" id="Time" name="newInfo" th:text="${sauces.getTime()}" rows="1" readonly></textarea>
@@ -111,7 +115,9 @@
         <div class=" mt-5 text-center">
             <h1>Enjoy your meal</h1>
         </div>
-
+        <div class=" mt-5 text-center">
+            <input type="button" class="btn btn-danger" onclick="history.back();" value="Go back to the recipes page"/>
+        </div>
     </div>
 </div>
 </div>

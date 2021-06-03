@@ -41,6 +41,7 @@ public class MainDishesContr {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -48,6 +49,7 @@ public class MainDishesContr {
         mainDishes.setName(name);
         mainDishes.setDescription(description);
         mainDishes.setIngridients(ingridients);
+        mainDishes.setPreparation(preparation);
         mainDishes.setTime(time);
         mainDishes.setServings(servings);
         mainDishes.setEnnergyValue(ennergyValue);

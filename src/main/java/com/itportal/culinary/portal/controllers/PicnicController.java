@@ -41,6 +41,7 @@ public class PicnicController {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -48,6 +49,7 @@ public class PicnicController {
         picnic.setName(name);
         picnic.setDescription(description);
         picnic.setIngridients(ingridients);
+        picnic.setPreparation(preparation);
         picnic.setTime(time);
         picnic.setServings(servings);
         picnic.setEnnergyValue(ennergyValue);

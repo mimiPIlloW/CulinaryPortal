@@ -42,6 +42,7 @@ public class GarnishController {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -49,6 +50,7 @@ public class GarnishController {
         garnish.setName(name);
         garnish.setDescription(description);
         garnish.setIngridients(ingridients);
+        garnish.setPreparation(preparation);
         garnish.setTime(time);
         garnish.setServings(servings);
         garnish.setEnnergyValue(ennergyValue);

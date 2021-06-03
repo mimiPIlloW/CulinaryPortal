@@ -41,6 +41,7 @@ public class CannedContr {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -48,6 +49,7 @@ public class CannedContr {
         canned.setName(name);
         canned.setDescription(description);
         canned.setIngridients(ingridients);
+        canned.setPreparation(preparation);
         canned.setTime(time);
         canned.setServings(servings);
         canned.setEnnergyValue(ennergyValue);

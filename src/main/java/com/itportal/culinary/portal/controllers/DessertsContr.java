@@ -40,6 +40,7 @@ public class DessertsContr {
             @RequestParam String description,
             @RequestParam String ingridients,
             @RequestParam String time,
+            @RequestParam String preparation,
             @RequestParam String servings,
             @RequestParam String ennergyValue, Model model,
             @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
@@ -47,6 +48,7 @@ public class DessertsContr {
         desserts.setName(name);
         desserts.setDescription(description);
         desserts.setIngridients(ingridients);
+        desserts.setPreparation(preparation);
         desserts.setTime(time);
         desserts.setServings(servings);
         desserts.setEnnergyValue(ennergyValue);

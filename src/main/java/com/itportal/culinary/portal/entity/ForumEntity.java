@@ -15,4 +15,11 @@ public class ForumEntity {
     private String anons;
     private String full_text;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    public String getAuthorName(){
+        return author!= null ? author.getUsername() : "<none>";
+    }
 }

@@ -16,6 +16,11 @@ public class NewsEntity {
 
     private String image;
 
-    @ManyToOne
-    private User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    public String getAuthorName(){
+        return author!= null ? author.getUsername() : "<none>";
+    }
 }

@@ -2,10 +2,12 @@ package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.Desserts;
 import com.itportal.culinary.portal.entity.MainDishes;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.MainDishesRepo;
 import com.itportal.culinary.portal.service.MainDishesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,7 @@ public class MainDishesContr {
 
     @PostMapping("/main_dishes")
     public String add(
+            @AuthenticationPrincipal User user,
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam String ingridients,
@@ -53,6 +56,7 @@ public class MainDishesContr {
         mainDishes.setTime(time);
         mainDishes.setServings(servings);
         mainDishes.setEnnergyValue(ennergyValue);
+        mainDishes.setAuthor(user);
         if (file != null) {
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {

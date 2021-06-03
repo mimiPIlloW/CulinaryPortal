@@ -1,9 +1,11 @@
 package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.ForumEntity;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.ForumRepository;
 import com.itportal.culinary.portal.service.ForumService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,11 +31,14 @@ public class ForumController {
     }
 
     @PostMapping("/forum")
-    public String add(@RequestParam String name, String anons, String full_text, Model model) {
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String name, String anons, String full_text, Model model) {
         ForumEntity message = new ForumEntity();
         message.setName(name);
         message.setFull_text(full_text);
         message.setAnons(anons);
+        message.setAuthor(user);
 
         forumRepository.save(message);
 

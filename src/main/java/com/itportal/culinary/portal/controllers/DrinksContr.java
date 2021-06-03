@@ -1,10 +1,12 @@
 package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.Drinks;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.DrinksRep;
 import com.itportal.culinary.portal.service.DrinksService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +38,7 @@ public class DrinksContr {
 
     @PostMapping("/drinks")
     public String add(
+            @AuthenticationPrincipal User user,
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam String ingridients,
@@ -52,6 +55,7 @@ public class DrinksContr {
         drinks.setTime(time);
         drinks.setServings(servings);
         drinks.setEnnergyValue(ennergyValue);
+        drinks.setAuthor(user);
         if (file != null) {
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {

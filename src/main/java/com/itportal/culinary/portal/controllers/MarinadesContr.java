@@ -2,10 +2,12 @@ package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.Desserts;
 import com.itportal.culinary.portal.entity.Marinades;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.MarinadesRepo;
 import com.itportal.culinary.portal.service.MarinadesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,7 @@ public class MarinadesContr {
 
     @PostMapping("/marinades")
     public String add(
+            @AuthenticationPrincipal User user,
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam String ingridients,
@@ -53,6 +56,7 @@ public class MarinadesContr {
         marinades.setTime(time);
         marinades.setServings(servings);
         marinades.setEnnergyValue(ennergyValue);
+        marinades.setAuthor(user);
         if (file != null) {
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {

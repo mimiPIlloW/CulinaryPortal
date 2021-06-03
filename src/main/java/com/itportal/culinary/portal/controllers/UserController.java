@@ -23,7 +23,7 @@ public class UserController {
         model.addAttribute("users", userRepository.findAll());
         return "userList";
     }
-    @PostMapping("/user/{id}/delete")
+    @PostMapping("/{id}/delete")
     public String deleteUserId(@PathVariable(name = "id") long id, Model model) {
         User user = userRepository.findById(id).orElseThrow();
         userRepository.delete(user);

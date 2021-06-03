@@ -3,10 +3,12 @@ package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.Desserts;
 import com.itportal.culinary.portal.entity.SecondCourses;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.SecondCoursesRep;
 import com.itportal.culinary.portal.service.SecondCoursesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +40,7 @@ public class SecondCoursesContr {
 
     @PostMapping("/second_courses")
     public String add(
+            @AuthenticationPrincipal User user,
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam String ingridients,
@@ -54,6 +57,7 @@ public class SecondCoursesContr {
         secondCourses.setTime(time);
         secondCourses.setServings(servings);
         secondCourses.setEnnergyValue(ennergyValue);
+        secondCourses.setAuthor(user);
         if (file != null) {
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {

@@ -4,10 +4,12 @@ package com.itportal.culinary.portal.controllers;
 import com.itportal.culinary.portal.entity.CookingRecipesGroup;
 import com.itportal.culinary.portal.entity.Recipes;
 import com.itportal.culinary.portal.entity.Salad;
+import com.itportal.culinary.portal.entity.User;
 import com.itportal.culinary.portal.repository.SaladRep;
 import com.itportal.culinary.portal.service.SaladService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +43,7 @@ public class SaladContr {
 
     @PostMapping("/salad")
     public String addRecipes(
+            @AuthenticationPrincipal User user,
             @RequestParam String name,
             @RequestParam String description,
             @RequestParam String ingridients,
@@ -57,6 +60,7 @@ public class SaladContr {
         salad.setTime(time);
         salad.setServings(servings);
         salad.setEnnergyValue(ennergyValue);
+        salad.setAuthor(user);
         if (file != null) {
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {

@@ -2,9 +2,11 @@ package com.itportal.culinary.portal.controllers;
 
 import com.itportal.culinary.portal.entity.ForumEntity;
 import com.itportal.culinary.portal.entity.User;
+import com.itportal.culinary.portal.exception.CanNotDeleteException;
 import com.itportal.culinary.portal.repository.ForumRepository;
 import com.itportal.culinary.portal.service.ForumService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,10 +64,11 @@ public class ForumController {
     }
 
     @PostMapping("/forum/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteForumId(@PathVariable(name = "id") long id,
                                 Model model) {
         ForumEntity forumEntity = forumRepository.findById(id).orElseThrow();
-        forumRepository.delete(forumEntity);
+            forumRepository.delete(forumEntity);
         return "redirect:/forum";
     }
 }

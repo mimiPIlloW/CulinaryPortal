@@ -8,6 +8,7 @@ import com.itportal.culinary.portal.repository.SnacksRep;
 import com.itportal.culinary.portal.service.SnacksService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -32,7 +35,8 @@ public class SnacksController {
 
     @GetMapping("/snacks")
     public String main(Model model) {
-        Iterable<Snacks> message = snacksRep.findAll();
+        List<Snacks> message = snacksRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
 
         model.addAttribute("allSnacks", message);
         return "Snacks";
@@ -72,7 +76,9 @@ public class SnacksController {
             snacks.setImage(resultFilename);
         }
         snacksRep.save(snacks);
-        Iterable<Snacks> message = snacksRep.findAll();
+        List<Snacks> message = snacksRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
+
         model.addAttribute("allSnacks", message);
         return "Snacks";
     }
@@ -86,6 +92,8 @@ public class SnacksController {
     }
 
     @PostMapping("/snacks/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteSnacksId(@PathVariable(name = "id") long id,
                                  Model model) {
         Snacks snacks = snacksRep.findById(id).orElseThrow();

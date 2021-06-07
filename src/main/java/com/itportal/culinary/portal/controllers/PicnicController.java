@@ -7,6 +7,7 @@ import com.itportal.culinary.portal.repository.PicnicRepo;
 import com.itportal.culinary.portal.service.PicnicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,7 +34,8 @@ public class PicnicController {
 
     @GetMapping("/picnic")
     public String main(Model model) {
-        Iterable<Picnic> message = picnicRepo.findAll();
+        List<Picnic> message = picnicRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
 
         model.addAttribute("allPicnic", message);
         return "Picnic";
@@ -71,7 +75,9 @@ public class PicnicController {
             picnic.setImage(resultFilename);
         }
         picnicRepo.save(picnic);
-        Iterable<Picnic> message = picnicRepo.findAll();
+        List<Picnic> message = picnicRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
+
         model.addAttribute("allPicnic", message);
         return "Picnic";
     }
@@ -85,6 +91,8 @@ public class PicnicController {
     }
 
     @PostMapping("/picnic/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deletePicnicId(@PathVariable(name = "id") long id,
                                  Model model) {
         Picnic picnic = picnicRepo.findById(id).orElseThrow();

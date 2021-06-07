@@ -7,6 +7,7 @@ import com.itportal.culinary.portal.repository.BreakfastRepo;
 import com.itportal.culinary.portal.service.BreakfastService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,7 +34,8 @@ public class BreakfastController {
 
     @GetMapping("/breakfast")
     public String main(Model model) {
-        Iterable<Breakfast> message = breakfastRepo.findAll();
+        List<Breakfast> message = breakfastRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
 
         model.addAttribute("allBreakfast", message);
         return "Breakfast";
@@ -71,7 +75,8 @@ public class BreakfastController {
             breakfast.setImage(resultFilename);
         }
         breakfastRepo.save(breakfast);
-        Iterable<Breakfast> message = breakfastRepo.findAll();
+        List<Breakfast> message = breakfastRepo.findAll();
+        Collections.sort(message , (left,right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allBreakfast", message);
         return "Breakfast";
     }
@@ -85,6 +90,8 @@ public class BreakfastController {
     }
 
     @PostMapping("/breakfast/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteBreakfastId(@PathVariable(name = "id") long id, Model model) {
         Breakfast breakfast = breakfastRepo.findById(id).orElseThrow();
         breakfastRepo.delete(breakfast);

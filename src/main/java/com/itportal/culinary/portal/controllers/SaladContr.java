@@ -9,6 +9,7 @@ import com.itportal.culinary.portal.repository.SaladRep;
 import com.itportal.culinary.portal.service.SaladService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,7 +34,8 @@ public class SaladContr {
 
     @GetMapping("/salad")
     public String saladHom(Model model) {
-        Iterable<Salad> message = saladRep.findAll();
+        List<Salad> message = saladRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
 
         model.addAttribute("allSalad", message);
         return "Salad";
@@ -72,7 +72,9 @@ public class SaladContr {
             salad.setImage(resultFilename);
         }
         saladRep.save(salad);
-        Iterable<Salad> message = saladRep.findAll();
+        List<Salad> message = saladRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
+
         model.addAttribute("allSalad", message);
         return "Salad";
     }
@@ -86,6 +88,8 @@ public class SaladContr {
     }
 
     @PostMapping("/salad/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteSaladId(@PathVariable(name = "id") long id,
                                 Model model) {
         Salad salad = saladRep.findById(id).orElseThrow();

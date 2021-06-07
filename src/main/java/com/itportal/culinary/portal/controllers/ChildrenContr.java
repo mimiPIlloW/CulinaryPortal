@@ -7,6 +7,7 @@ import com.itportal.culinary.portal.repository.ChildrenRepo;
 import com.itportal.culinary.portal.service.ChildrenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,8 +34,8 @@ public class ChildrenContr {
 
     @GetMapping("/for_children")
     public String main(Model model) {
-        Iterable<Children> message = childrenRepo.findAll();
-
+        List<Children> message = childrenRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allChildren", message);
         return "ForChildren";
     }
@@ -71,7 +74,8 @@ public class ChildrenContr {
             children.setImage(resultFilename);
         }
         childrenRepo.save(children);
-        Iterable<Children> message = childrenRepo.findAll();
+        List<Children> message = childrenRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allChildren", message);
         return "ForChildren";
     }
@@ -85,6 +89,8 @@ public class ChildrenContr {
     }
 
     @PostMapping("/for_children/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteChildrenId(@PathVariable(name = "id") long id,
                                    Model model) {
         Children children = childrenRepo.findById(id).orElseThrow();

@@ -8,6 +8,7 @@ import com.itportal.culinary.portal.repository.SecondCoursesRep;
 import com.itportal.culinary.portal.service.SecondCoursesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -32,7 +35,8 @@ public class SecondCoursesContr {
 
     @GetMapping("/second_courses")
     public String main(Model model) {
-        Iterable<SecondCourses> message = secondCoursesRep.findAll();
+        List<SecondCourses> message = secondCoursesRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
 
         model.addAttribute("allSecondCourses", message);
         return "SecondCourses";
@@ -72,7 +76,9 @@ public class SecondCoursesContr {
             secondCourses.setImage(resultFilename);
         }
         secondCoursesRep.save(secondCourses);
-        Iterable<SecondCourses> message = secondCoursesRep.findAll();
+        List<SecondCourses> message = secondCoursesRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
+
         model.addAttribute("allSecondCourses", message);
         return "SecondCourses";
     }
@@ -86,6 +92,8 @@ public class SecondCoursesContr {
     }
 
     @PostMapping("/second_courses/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteSecondCoursessId(@PathVariable(name = "id") long id,
                                          Model model) {
         SecondCourses secondCourses = secondCoursesRep.findById(id).orElseThrow();

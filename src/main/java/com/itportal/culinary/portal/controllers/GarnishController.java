@@ -8,6 +8,7 @@ import com.itportal.culinary.portal.repository.GarnishRep;
 import com.itportal.culinary.portal.service.GarnishService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -32,8 +35,8 @@ public class GarnishController {
 
     @GetMapping("/side_dishes")
     public String main(Model model) {
-        Iterable<Garnish> message = garnishRep.findAll();
-
+        List<Garnish> message = garnishRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allGarnish", message);
         return "Garnish";
     }
@@ -72,7 +75,8 @@ public class GarnishController {
             garnish.setImage(resultFilename);
         }
         garnishRep.save(garnish);
-        Iterable<Garnish> message = garnishRep.findAll();
+        List<Garnish> message = garnishRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allGarnish", message);
         return "Garnish";
     }
@@ -86,6 +90,8 @@ public class GarnishController {
     }
 
     @PostMapping("/side_dishes/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteSideDishesId(@PathVariable(name = "id") long id,
                                      Model model) {
         Garnish garnish = garnishRep.findById(id).orElseThrow();

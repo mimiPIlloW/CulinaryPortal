@@ -7,6 +7,7 @@ import com.itportal.culinary.portal.repository.DietRepo;
 import com.itportal.culinary.portal.service.DietService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,8 +34,8 @@ public class DietContr {
 
     @GetMapping("/diet_food")
     public String main(Model model) {
-        Iterable<Diet> message = dietRepo.findAll();
-
+        List<Diet> message = dietRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allDiet", message);
         return "Diet";
     }
@@ -71,7 +74,8 @@ public class DietContr {
             diet.setImage(resultFilename);
         }
         dietRepo.save(diet);
-        Iterable<Diet> message = dietRepo.findAll();
+        List<Diet> message = dietRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allDiet", message);
         return "Diet";
     }
@@ -85,6 +89,8 @@ public class DietContr {
     }
 
     @PostMapping("/diet_food/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteDietId(@PathVariable(name = "id") long id,
                                Model model) {
         Diet diet = dietRepo.findById(id).orElseThrow();

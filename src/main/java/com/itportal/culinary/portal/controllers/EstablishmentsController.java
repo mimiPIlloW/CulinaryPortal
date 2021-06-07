@@ -6,6 +6,7 @@ import com.itportal.culinary.portal.repository.EstablishmentsRepository;
 import com.itportal.culinary.portal.service.EstablishmentsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +39,7 @@ public class EstablishmentsController {
     }
 
     @PostMapping("/culinary_establishments")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String add(@RequestParam String name,
                       @RequestParam String description,
                       @RequestParam String address,
@@ -83,6 +85,8 @@ public class EstablishmentsController {
     }
 
     @PostMapping("/culinary_establishments/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteEstablishmentsId(@PathVariable(name = "id") long id,
                                          Model model) {
         Establishments establishments = establishmentsRepository.findById(id).orElseThrow();

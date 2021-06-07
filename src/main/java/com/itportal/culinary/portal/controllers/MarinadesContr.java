@@ -7,6 +7,7 @@ import com.itportal.culinary.portal.repository.MarinadesRepo;
 import com.itportal.culinary.portal.service.MarinadesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,8 +34,8 @@ public class MarinadesContr {
 
     @GetMapping("/marinades")
     public String main(Model model) {
-        Iterable<Marinades> message = marinadesRepo.findAll();
-
+        List<Marinades> message = marinadesRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allMarinades", message);
         return "Marinades";
     }
@@ -71,7 +74,8 @@ public class MarinadesContr {
             marinades.setImage(resultFilename);
         }
         marinadesRepo.save(marinades);
-        Iterable<Marinades> message = marinadesRepo.findAll();
+        List<Marinades> message = marinadesRepo.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allMarinades", message);
         return "Marinades";
     }
@@ -85,6 +89,8 @@ public class MarinadesContr {
     }
 
     @PostMapping("/marinades/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteMarinadesId(@PathVariable(name = "id") long id,
                                     Model model) {
         Marinades marinades = marinadesRepo.findById(id).orElseThrow();

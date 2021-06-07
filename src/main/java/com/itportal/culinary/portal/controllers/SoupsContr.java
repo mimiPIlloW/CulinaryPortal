@@ -8,6 +8,7 @@ import com.itportal.culinary.portal.repository.SoupsRep;
 import com.itportal.culinary.portal.service.SoupsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -32,7 +35,8 @@ public class SoupsContr {
 
     @GetMapping("/soups")
     public String main(Model model) {
-        Iterable<Soups> message = soupsRep.findAll();
+        List<Soups> message = soupsRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
 
         model.addAttribute("allSoups", message);
         return "Soups";
@@ -72,7 +76,9 @@ public class SoupsContr {
             soups.setImage(resultFilename);
         }
         soupsRep.save(soups);
-        Iterable<Soups> message = soupsRep.findAll();
+        List<Soups> message = soupsRep.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
+
         model.addAttribute("allSoups", message);
         return "Soups";
     }
@@ -86,6 +92,8 @@ public class SoupsContr {
     }
 
     @PostMapping("/soups/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteSoupsId(@PathVariable(name = "id") long id,
                                 Model model) {
         Soups soups = soupsRep.findById(id).orElseThrow();

@@ -4,6 +4,7 @@ import com.itportal.culinary.portal.entity.NewsEntity;
 import com.itportal.culinary.portal.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -29,12 +32,15 @@ public class NewsPaperController {
 
     @GetMapping("/newspaper")
     public String main(Model model) {
-        Iterable<NewsEntity> message = newsRepository.findAll();
+        List<NewsEntity> message = newsRepository.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allNewsPaper", message);
         return "news";
     }
 
     @PostMapping("/newspaper")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String add(@RequestParam String name, Model model,
                       @RequestParam(name = "file", required = false) MultipartFile file) throws IOException {
 
@@ -56,12 +62,16 @@ public class NewsPaperController {
         }
 
         newsRepository.save(group);
-        Iterable<NewsEntity> message = newsRepository.findAll();
+        List<NewsEntity> message = newsRepository.findAll();
+        Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
+
         model.addAttribute("allNewsPaper", message);
         return "news";
     }
 
     @PostMapping("/news/{id}/delete")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public String deleteNewsId(@PathVariable(name = "id") long id,
                                Model model) {
         NewsEntity newsEntity = newsRepository.findById(id).orElseThrow();

@@ -111,7 +111,7 @@
     </div>
 </section>
 
-<div class="container mt-5 mb-5 border border-secondary rounded  text-center" style="background: #a74a25"
+<div class="container mt-5 mb-5 border border-secondary rounded  text-center" style="background: #850a0a"
      sec:authorize="isAuthenticated()">
     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
             aria-controls="collapseOne">
@@ -138,7 +138,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4 shadow-sm">
-                <div class="card-body" style="background:#a74a25">
+                <div class="card-body" style="background:#850a0a">
                     <div th:each="el:${allNewsPaper}" class="alert alert-info mt-4">
                         <img th:src="${'/img/' + el.getImage()}" class="bd-placeholder-img card-img-top" width="200%"
                              height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"

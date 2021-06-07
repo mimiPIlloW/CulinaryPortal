@@ -81,14 +81,14 @@
     <div class="container mt-5 mb-5 text-center">
         <div class="container mt-5 mb-5 border border-secondary rounded text-center" style="background: #085808"
              sec:authorize="isAuthenticated()">
-            <h5 class="text-white mt-3"> Title</h5>
+            <h5 class="text-white mt-3"> Topic</h5>
             <div class="input-group text-center ">
                 <textarea class="form-control" id="Name" name="newInfo" th:text="${forum.getName()}" rows="5" readonly></textarea>
             </div>
-            <h5 class="text-white mt-3"> Anons</h5>
-            <div class="input-group text-center">
-                <textarea class="form-control" id="Anons" name="newInfo" th:text="${forum.getAnons()}" rows="5" readonly></textarea>
-            </div>
+<!--            <h5 class="text-white mt-3"> Anons</h5>-->
+<!--            <div class="input-group text-center">-->
+<!--                <textarea class="form-control" id="Anons" name="newInfo" th:text="${forum.getAnons()}" rows="5" readonly></textarea>-->
+<!--            </div>-->
             <h5 class="text-white mt-3"> Text</h5>
             <div class="input-group text-center">
                 <textarea class="form-control" id="Full-text" name="newInfo" th:text="${forum.getFull_text()}" rows="2" readonly></textarea>

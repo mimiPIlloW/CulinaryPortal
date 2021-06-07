@@ -64,7 +64,6 @@ public class NewsPaperController {
         newsRepository.save(group);
         List<NewsEntity> message = newsRepository.findAll();
         Collections.sort(message , (left, right) -> (int) (right.getId() - left.getId()));
-
         model.addAttribute("allNewsPaper", message);
         return "news";
     }

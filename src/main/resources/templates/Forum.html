@@ -103,21 +103,21 @@
         <div>
             <div class="input-group mb-2 ">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">Title:</span>
+                    <span class="input-group-text">Topic:</span>
                 </div>
                 <input type="text" name="name" class="form-control"
                        aria-describedby="basic-addon3" placeholder="..." required>
             </div>
-            <div class="input-group mb-2 ">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Anons:</span>
-                </div>
-                <input type="text" name="anons" class="form-control"
-                       aria-describedby="basic-addon3" placeholder="..." required>
-            </div>
+<!--            <div class="input-group mb-2 ">-->
+<!--                <div class="input-group-prepend">-->
+<!--                    <span class="input-group-text">Anons:</span>-->
+<!--                </div>-->
+<!--                <input type="text" name="anons" class="form-control"-->
+<!--                       aria-describedby="basic-addon3" placeholder="..." required>-->
+<!--            </div>-->
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">Full text:</span>
+                    <span class="input-group-text">Text:</span>
                 </div>
                 <textarea class="form-control " name="full_text" aria-label="With textarea" rows="10"></textarea>
             </div>
@@ -135,10 +135,9 @@
             <div th:each="el:${allMessages}" class="alert alert-info mt-4">
                 <div class="container mt-4 ">
                     <div class="card mb-1 shadow-sm" style="background:#085808">
-                        <h3 class="text-white">Title:</h3>
-                        <h4 class="text-white" th:text="${el.getName()}"></h4>
-                            <h3 class="text-white">Anons:</h3>
-                            <h4 class="text-white" th:text="${el.getAnons()}"></h4>
+                        <h4 class="text-white text-center" >Topic</h4>
+                        <h5 class="text-white" th:text="${el.getName()}">we</h5>
+<!--                            <h4 class="text-white" th:text="${el.getAnons()}"></h4>-->
                         <div class="card mb-4 shadow-sm text-white" style="background:#054105">
                             <p class="card-text" th:text="${el.getAuthorName()}"></p>
                         </div>

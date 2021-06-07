@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class ForumController {
@@ -23,8 +27,8 @@ public class ForumController {
 
     @GetMapping("/forum")
     public String main(Model model) {
-        Iterable<ForumEntity> messages = forumRepository.findAll();
-
+        List<ForumEntity> messages = forumRepository.findAll();
+        Collections.sort(messages , (left,right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allMessages", messages);
 
         return "Forum";
@@ -42,8 +46,8 @@ public class ForumController {
 
         forumRepository.save(message);
 
-        Iterable<ForumEntity> messages = forumRepository.findAll();
-
+        List<ForumEntity> messages = forumRepository.findAll();
+        Collections.sort(messages , (left,right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allMessages", messages);
 
         return "Forum";

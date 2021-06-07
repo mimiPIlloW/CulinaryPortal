@@ -28,8 +28,56 @@
     </head>
 </head>
 
-<body>
+<style>
+    #toTop {
+        width:40px;
+        border:1px solid #ccc;
+        background:#f7f7f7;
+        text-align:center;
+        padding:5px;
+        position:fixed;
+        bottom:10px; /* ?????? ?????? ?? ??????? ???? ????????*/
+        right:10px;
+        cursor:pointer;
+        display:none;
+        color:#333;
+        font-family:verdana;
+        font-size:10px;
+    }
+</style>
 
+<body>
+<DIV ID = "toTop" class="text-white" style="background:#ff0000">UP</DIV>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $(function() {
+
+        $(window).scroll(function() {
+
+            if($(this).scrollTop() != 0) {
+
+                $('#toTop').fadeIn();
+
+            } else {
+
+                $('#toTop').fadeOut();
+
+            }
+
+        });
+
+        $('#toTop').click(function() {
+
+            $('body,html').animate({scrollTop:0},800);
+
+        });
+
+    });
+
+</script>
 
 <header>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -182,6 +230,9 @@
     <h1 class="fw-black"><b>Cooking groups on the page</b></h1>
     <h3 class="fw-black"><b>Click on the group you want to go to</b></h3>
 </section>
+
+
+
 
 <div class="container mt-2 mb-3">
     <nav id="menu">

@@ -88,19 +88,19 @@
              sec:authorize="isAuthenticated()">
             <h5 class="text-white mt-3"> Description</h5>
             <div class="input-group text-center ">
-                <textarea class="form-control" id="description" name="newInfo" th:text="${establishments.getDescription()}" rows="5" readonly></textarea>
+                <textarea class="form-control" id="description" name="newInfo" th:text="${establishments.getDescription()}" rows="2" readonly></textarea>
             </div>
             <h5 class="text-white mt-3"> Adress</h5>
             <div class="input-group text-center">
-                <textarea class="form-control" id="Adress" name="newInfo" th:text="${establishments.getAddress()}" rows="5" readonly></textarea>
+                <textarea class="form-control" id="Adress" name="newInfo" th:text="${establishments.getAddress()}" rows="3" readonly></textarea>
             </div>
             <h5 class="text-white mt-3"> Opening hours</h5>
             <div class="input-group text-center">
-                <textarea class="form-control" id="OpeningHours" name="newInfo" th:text="${establishments.getOpening_hours()}" rows="2" readonly></textarea>
+                <textarea class="form-control" id="OpeningHours" name="newInfo" th:text="${establishments.getOpening_hours()}" rows="7" readonly></textarea>
             </div>
             <h5 class="text-white mt-3"> Telephone</h5>
             <div class="input-group text-center">
-                <textarea class="form-control" id="Telephone" name="newInfo" th:text="${establishments.getTelephone()}" rows="1" readonly></textarea>
+                <textarea class="form-control" id="Telephone" name="newInfo" th:text="${establishments.getTelephone()}" rows="2" readonly></textarea>
             </div>
         </div>
     </div>

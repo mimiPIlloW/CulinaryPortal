@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,8 +33,8 @@ public class EstablishmentsController {
 
     @GetMapping("/culinary_establishments")
     public String main(Model model) {
-        Iterable<Establishments> messages = establishmentsRepository.findAll();
-
+        List<Establishments> messages = establishmentsRepository.findAll();
+        Collections.sort(messages , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allEstablishments", messages);
 
         return "Establishments";
@@ -69,8 +71,8 @@ public class EstablishmentsController {
 
         establishmentsRepository.save(establishments);
 
-        Iterable<Establishments> messages = establishmentsRepository.findAll();
-
+        List<Establishments> messages = establishmentsRepository.findAll();
+        Collections.sort(messages , (left, right) -> (int) (right.getId() - left.getId()));
         model.addAttribute("allEstablishments", messages);
 
         return "Establishments";
